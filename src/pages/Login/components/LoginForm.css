@@ -1,0 +1,23 @@
+.login-portada{
+  background-image: url('./../../assets/img/login-background.avif');
+  background-position: center;
+  height: 100vh;
+  background-size: cover;
+}
+.login-portada-text{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, .7);
+}
+.login-icon{
+  color: var(--royal-purple);
+  font-size: 100px;
+  margin-bottom: 20px;
+}
+.login-input{
+  width: 50vw !important;
+}
