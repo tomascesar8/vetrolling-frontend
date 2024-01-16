@@ -11,7 +11,7 @@ const SectionServices = () => {
   }, []);
 
   return (
-    <section>
+    <section className="pt-4">
       <div className="container-title">
         <Title
           title='Servicios'

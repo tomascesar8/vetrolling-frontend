@@ -11,7 +11,7 @@ const SectionProducts = () => {
   }, []);
 
   return (
-    <section className="container text-center mt-5">
+    <section className="container text-center pt-4">
       <Title title="Nuestros productos" />
       <div className="col gap-4 mt-5">
         <div className="row gap-4">
