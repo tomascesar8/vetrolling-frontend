@@ -22,8 +22,9 @@ html {
 }
 
 .container-hero {
-  /* margin-top: 6rem; */
+  margin-top: 6rem;
 }
+
 .container-title {
   text-align: center;
   margin-top: 10rem;

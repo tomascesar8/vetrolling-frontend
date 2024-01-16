@@ -10,10 +10,14 @@ import PlansDetails from "./pages/PlanDetails/PlanDetails";
 import Error404 from "./pages/Error404/Error404";
 import Turnos from "./pages/Turnos/Turnos";
 import AboutUs from "./pages/AboutUs/AboutUs";
+import { Toaster } from "sonner";
+
+
 
 function App() {
-
+  
   return (
+    <>
     <UserProvider>
     <Router>
       <Routes>
@@ -28,6 +32,9 @@ function App() {
       </Routes>
     </Router>
     </UserProvider>
+    <Toaster richColors />
+    </>
+
   )
 }
 

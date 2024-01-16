@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import axiosClient from "../config/axiosClient";
 import authToken from "../helpers/authToken";
+import { toast } from 'sonner'
 
 export const UserContext = createContext();
 
@@ -15,8 +16,10 @@ const UserProvider = ({children})=>{
       setToken(data.token);
       setAuth(true);
       localStorage.setItem('token',data.token);
+      toast.success('¡Bienvenido de nuevo ' + data.user.nombre + '!');
     } catch (error) {
-      console.log(error);
+      console.log(error, "error en el proceso de logeo");
+      toast.error('Error: ' + error.response.data.message);
       setAuth(false);
       if(localStorage.getItem('token')){
         localStorage.removeItem('token');
@@ -26,48 +29,27 @@ const UserProvider = ({children})=>{
 
   const getAuth = async () => {
     const token = localStorage.getItem('token');
-    // console.log(token);
-    // console.log('WEEEEEEEEEEEEEEEEEEE');
-    
-    if(token){
-      authToken(token);
-    try {
-      const response = await axiosClient.get('/users/auth');
-      setAuth(true);
-      setUser(response.data.user);
-    } catch (error) {
-      if (error.response) {
-        // Aquí, error.response contiene la respuesta HTTP con los códigos de estado
-        const statusCode = error.response.status;
-        console.log('Código de estado:', statusCode);
-  
-        switch (statusCode) {
-          case 450:
-            console.log('Token inválido o acceso denegado');
-            break;
-          case 451:
-            console.log('Token inválido');
-            break;
-          case 452:
-            console.log('Token expirado');
-            break;
-          default:
-            console.log('Error desconocido');
-            break;
-        }
-  
+    if (token){
+      authToken(token)
+      try {
+        const response = await axiosClient.get('/users/auth');
+        setAuth(true);
+        setUser(response.data.user);
+      } catch (error) {
+        console.log(error);
         setAuth(false);
         setUser(null);
         setToken(null);
-        if (localStorage.getItem('token')) {
+        if(localStorage.getItem('token')){
           localStorage.removeItem('token');
         }
-      } else {
-        // Manejar otros tipos de errores
-        console.log('Error sin respuesta HTTP:', error.message);
       }
+    } else {
+      setAuth(false);
+      setUser(null);
+      setToken(null);
     }
-  }
+  
   };
   
   
@@ -77,6 +59,7 @@ const UserProvider = ({children})=>{
     setToken(null);
     setUser(null);
     localStorage.removeItem('token');
+    toast.success('Sesion Finalizada Correctamente. ¡Hasta pronto!');
   }
   return(
     <UserContext.Provider value={{
