@@ -24,23 +24,53 @@ const UserProvider = ({children})=>{
     }
   }
 
-  const getAuth = async()=>{
+  const getAuth = async () => {
     const token = localStorage.getItem('token');
-    authToken(token)
+    // console.log(token);
+    // console.log('WEEEEEEEEEEEEEEEEEEE');
+    
+    if(token){
+      authToken(token);
     try {
       const response = await axiosClient.get('/users/auth');
       setAuth(true);
       setUser(response.data.user);
     } catch (error) {
-      console.log(error);
-      setAuth(false);
-      setUser(null);
-      setToken(null);
-      if(localStorage.getItem('token')){
-        localStorage.removeItem('token');
+      if (error.response) {
+        // Aquí, error.response contiene la respuesta HTTP con los códigos de estado
+        const statusCode = error.response.status;
+        console.log('Código de estado:', statusCode);
+  
+        switch (statusCode) {
+          case 450:
+            console.log('Token inválido o acceso denegado');
+            break;
+          case 451:
+            console.log('Token inválido');
+            break;
+          case 452:
+            console.log('Token expirado');
+            break;
+          default:
+            console.log('Error desconocido');
+            break;
+        }
+  
+        setAuth(false);
+        setUser(null);
+        setToken(null);
+        if (localStorage.getItem('token')) {
+          localStorage.removeItem('token');
+        }
+      } else {
+        // Manejar otros tipos de errores
+        console.log('Error sin respuesta HTTP:', error.message);
       }
     }
   }
+  };
+  
+  
   
   const logout = ()=>{
     setAuth(false);

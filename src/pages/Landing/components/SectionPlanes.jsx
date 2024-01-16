@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 import CardPlans from "./CardPlans";
 import getData from "./../../../helpers/getData";
+import { Link } from "react-router-dom";
 
 const SectionPlanes = ({ButtonType, Title}) => {
   const [planes, setPlanes] = useState([]);
@@ -26,9 +27,9 @@ const SectionPlanes = ({ButtonType, Title}) => {
           />
         ))}
       </div>
-      <ButtonType types='button' className=''>
+      <Link to="/plansdetails" className="btn btn-primary btn-lg mt-4">
         Ver detalle de planes
-      </ButtonType>
+      </Link>
     </section>
   );
 };

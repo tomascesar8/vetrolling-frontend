@@ -10,13 +10,14 @@ import useForm from '../../../hooks/useForm';
 import { UserContext } from '../../../context/UserContext';
 
 const LoginForm = () => {
-  const {login, auth} = useContext(UserContext);
+  const {login, auth, user} = useContext(UserContext);
   const navigate = useNavigate();
   useEffect(()=>{
+    // console.log(user);
     if(auth){
       navigate('/home')
     }
-  },[auth])
+  },[auth, user])
   const { handleKeyUp, handleSubmit,errors} = useForm(LOGIN_VALUES, login, validationLogin); 
   
   return ( 

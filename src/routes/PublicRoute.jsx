@@ -4,12 +4,12 @@ import { UserContext } from "../context/UserContext";
 
 const PublicRoute = ({children}) => {
   const {auth, getAuth} = useContext(UserContext);
-
+  
   useEffect(()=>{
     getAuth();
   },[])
   return ( 
-    !auth? children : <Navigate to='/home'/>
+    !auth? children : <Navigate to='/'/>
    );
 }
  
