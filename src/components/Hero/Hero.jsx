@@ -3,7 +3,7 @@ import { ButtonType } from '../Button/ButtonType';
 
 export const Hero = () => {
   return (
-    <Container className='container-hero'>
+    <Container className='container-hero pt-4'>
     <Row className='mt-5'>
       <Col>
         <Image 

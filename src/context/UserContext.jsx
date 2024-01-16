@@ -1,6 +1,7 @@
 import { createContext, useState } from "react";
 import axiosClient from "../config/axiosClient";
 import authToken from "../helpers/authToken";
+import { toast } from 'sonner'
 
 export const UserContext = createContext();
 
@@ -15,8 +16,10 @@ const UserProvider = ({children})=>{
       setToken(data.token);
       setAuth(true);
       localStorage.setItem('token',data.token);
+      toast.success('¡Bienvenido de nuevo ' + data.user.nombre + '!');
     } catch (error) {
-      console.log(error);
+      console.log(error, "error en el proceso de logeo");
+      toast.error('Error: ' + error.response.data.message);
       setAuth(false);
       if(localStorage.getItem('token')){
         localStorage.removeItem('token');
@@ -26,20 +29,27 @@ const UserProvider = ({children})=>{
 
   const getAuth = async()=>{
     const token = localStorage.getItem('token');
-    authToken(token)
-    try {
-      const response = await axiosClient.get('/users/auth');
-      setAuth(true);
-      setUser(response.data.user);
-    } catch (error) {
-      console.log(error);
+    if (token){
+      authToken(token)
+      try {
+        const response = await axiosClient.get('/users/auth');
+        setAuth(true);
+        setUser(response.data.user);
+      } catch (error) {
+        console.log(error);
+        setAuth(false);
+        setUser(null);
+        setToken(null);
+        if(localStorage.getItem('token')){
+          localStorage.removeItem('token');
+        }
+      }
+    } else {
       setAuth(false);
       setUser(null);
       setToken(null);
-      if(localStorage.getItem('token')){
-        localStorage.removeItem('token');
-      }
     }
+
   }
   
   const logout = ()=>{
@@ -47,6 +57,7 @@ const UserProvider = ({children})=>{
     setToken(null);
     setUser(null);
     localStorage.removeItem('token');
+    toast.success('Sesion Finalizada Correctamente. ¡Hasta pronto!');
   }
   return(
     <UserContext.Provider value={{

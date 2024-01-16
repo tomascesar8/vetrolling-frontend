@@ -1,7 +1,7 @@
 export const CallToAction = () => {
 
   return (
-    <div className="call-to-action py-5 m-2">
+    <div className="call-to-action py-5 mx-2">
       <div className="container d-flex flex-row justify-content-between">
         <div className="row">
           <div className="col-12">
