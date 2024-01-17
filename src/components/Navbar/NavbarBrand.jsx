@@ -7,6 +7,7 @@ import { UserContext } from '../../context/UserContext';
 export const NavbarBrand = () => {  
   const { pathname } = useLocation();
   const { logout, user, auth, getAuth } = useContext(UserContext);
+  // console.log(user);
 
   // Llamada a getAuth inmediatamente para actualizar el estado
   useEffect(() => {

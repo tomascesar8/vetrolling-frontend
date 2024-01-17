@@ -7,6 +7,7 @@ const PublicRoute = ({children}) => {
   
   useEffect(()=>{
     getAuth();
+    console.log('PUBLIC ROUTE');
   },[])
   return ( 
     !auth? children : <Navigate to='/'/>

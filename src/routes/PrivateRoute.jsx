@@ -7,6 +7,7 @@ const PrivateRoute = ({children}) => {
 
   useEffect(()=>{
     getAuth();
+    console.log('PRIVATE ROUTE');
   },[])
   return ( 
     auth? children : <Navigate to='/login'/>

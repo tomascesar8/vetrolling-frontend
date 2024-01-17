@@ -60,13 +60,12 @@ const Turnos = () => {
         <Table bordered hover>
           <thead>
             <tr>
-              <th>id</th>
-              <th>Detalle Cita</th>
               <th>Usuario</th>
-              <th>Veterinario</th>
+              <th>Mascota</th>
+              <th>Detalle Cita</th>
               <th>Fecha</th>
               <th>Hora</th>
-              <th>Ver</th>
+              <th>Veterinario</th>
             </tr>
           </thead>
           <tbody>
@@ -74,17 +73,13 @@ const Turnos = () => {
               <tr
                 key={turno._id}
                 onClick={() => handleRowClick(turno._id)}
-                // className={selected === turno._id ? "selected-row" : ""}
               >
-                <td>{turno._id}</td>
-                <td>{turno.detalleCita}</td>
                 <td>{turno.user.nombre}</td>
-                <td>{turno.veterinarian.nombre}</td>
-                <td>{turno.fecha}</td>
+                <td>{turno.user.pet?.nombre}</td>
+                <td>{turno.detalleCita}</td>
+                <td>{turno.fecha.split("T")[0].split("-").reverse().join("-")}</td>
                 <td>{turno.hora}</td>
-                <td>
-                  <Link to={`/turno/${turno._id}`}>Ir a detalle</Link>
-                </td>
+                <td>{turno.veterinarian.nombre}</td>
               </tr>
             ))}
           </tbody>
