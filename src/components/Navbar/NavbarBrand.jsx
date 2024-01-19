@@ -50,7 +50,8 @@ export const NavbarBrand = () => {
                   {user ? (
                     user.role === 'admin' ? (
                         <>
-                          <Link to="/appointments" className='text-white nav-link'>Turnos</Link>
+                          <Link to="/admin/users" className='text-white nav-link'>Usuarios</Link>
+                          <Link to="/admin/appointments" className='text-white nav-link'>Turnos</Link>
                           <Link to="/login" onClick={logout} className="nav-link fw-bold btn bg-danger text-white ms-3">
                             <span className="px-2">Cerrar sesión</span>
                           </Link>
@@ -58,7 +59,7 @@ export const NavbarBrand = () => {
                         </>
                     ) : (
                       <>
-                        <Link to="/home" className='text-white nav-link'>Inicio</Link>
+                        <Link to="/info-plans" className='text-white nav-link'>Planes Disponibles</Link>
                         <Link to="/appointments" className='text-white nav-link'>Turnos</Link>
                         <Link to="/about-us" className='text-white nav-link'>Sobre nosotros</Link>
                         <Link to="/contact" className='text-white nav-link'>Contacto</Link>
@@ -70,6 +71,7 @@ export const NavbarBrand = () => {
                     )
                     ) : (
                     <>
+                      <Link to="/info-plans" className='text-white nav-link'>Planes Disponibles</Link>
                       <Link to="/contact" className='text-white nav-link'>Contacto</Link>
                       <Link to="/about-us" className='text-white nav-link ms-2'>Sobre nosotros</Link>
                       <Link to="/login" className="nav-link text-white fw-bold bg-info bg-opacity-75 btn ms-3">

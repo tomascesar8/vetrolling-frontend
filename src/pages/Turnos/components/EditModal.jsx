@@ -1,4 +1,4 @@
-import { Modal, Button, FloatingLabel, Form } from "react-bootstrap";
+import { Modal, Button, FloatingLabel, Form, FormGroup, FormLabel, FormSelect } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axiosClient from "../../../config/axiosClient";
 import { ADD_TURNOS_VALUES } from "../../../constanst";
@@ -39,7 +39,6 @@ const EditModal = ({ show, handleClose, selected, getTurnos }) => {
 
   const updateTurno = async (info) => {
     try {
-      // Verifica que la propiedad veterinarian exista antes de intentar acceder a _id
       console.log(info.veterinarian);
       const updatedInfo = {
         ...info,
@@ -55,30 +54,6 @@ const EditModal = ({ show, handleClose, selected, getTurnos }) => {
     }
   };
 
-  
-
-// const updateTurno = async (info) => {
-//   try {
-//     // Verifica que la propiedad veterinarios exista antes de intentar acceder a _id
-//     console.log(info.veterinarian._id);
-//     // const veterinarianId = info.veterinarios ? info.veterinarios._id : null;
-//     // Extrae solo el _id del veterinario antes de enviar la solicitud PUT
-//     const updatedInfo = {
-//       ...info,
-//       veterinarian: info.veterinarian._id,
-//       user: info.user._id
-//     };
-
-//     await axiosClient.put(`/turnos/${selected}`, updatedInfo);
-//     console.log(updatedInfo);
-//     getTurnos();
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-  
-
   useEffect(() => {
     getUsuarios();
     getVeterinarios();
@@ -89,9 +64,10 @@ const EditModal = ({ show, handleClose, selected, getTurnos }) => {
     ADD_TURNOS_VALUES,
     updateTurno
   );
-  useEffect(() => {
-    console.log(values);
-  }, [values]); 
+  // useEffect(() => {
+  //   console.log(values);
+  // }, [values]); 
+
   return (
     <>
       <Modal show={show} onHide={handleClose}>
@@ -120,43 +96,62 @@ const EditModal = ({ show, handleClose, selected, getTurnos }) => {
               ))}
             </select> */}
 
-<select
-  name="veterinarian"
-  id="veterinarian"
-  onChange={(e) => setValues({ ...values, veterinarian: e.target.value })}
-  value={values.veterinarian._id}
->
-  {veterinarios.map((veterinario) => {
-    console.log(values.veterinarian._id);
-    console.log(`veterinario._id: ${veterinario._id}`);
-    
-    return (
-      <option key={veterinario._id} value={veterinario._id}>
-        {veterinario.nombre}
-      </option>
-    );
-  })}
-</select>
+            <FormGroup controlId="veterinarian" className="mb-3">
+              <FormLabel className="ms-2">Veterinario:</FormLabel>
+              <FormSelect
+                name="veterinarian"
+                id="veterinarian"
+                onChange={(e) => setValues({ ...values, veterinarian: e.target.value })}
+                value={values.veterinarian._id}
+              >
+                {veterinarios.map((veterinario) => (
+                  <option key={veterinario._id} value={veterinario._id}>
+                    {veterinario.nombre}
+                  </option>
+                ))}
+              </FormSelect>
+            </FormGroup>
 
+            {/* <label htmlFor="veterinarian">Veterinario: </label>
+            <select
+              name="veterinarian"
+              id="veterinarian"
+              onChange={(e) => setValues({ ...values, veterinarian: e.target.value })}
+              value={values.veterinarian._id}
+            >
+              {veterinarios.map((veterinario) => {
+                console.log(values.veterinarian._id);
+                console.log(`veterinario._id: ${veterinario._id}`);
+                
+                return (
+                  <option key={veterinario._id} value={veterinario._id}>
+                    {veterinario.nombre}
+                  </option>
+                );
+              })}
+            </select> */}
 
-            <FloatingLabel controlId="floatingFecha" label="Fecha">
-              <Form.Control
-                type="date"
-                className=""
-                onKeyUp={handleKeyUp}
-                name="fecha"
-                defaultValue={values.fecha}
-              />
-            </FloatingLabel>
             <FloatingLabel controlId="floatingHora" label="Hora">
               <Form.Control
                 type="time"
-                className=""
+                className="mb-3"
                 onKeyUp={handleKeyUp}
                 name="hora"
                 defaultValue={values.hora}
               />
             </FloatingLabel>
+ 
+            <FloatingLabel controlId="floatingFecha" label="Fecha">
+  <Form.Control
+    type="date"
+    className="mb-4"
+    onKeyUp={handleKeyUp}
+    name="fecha"
+    value={values.fecha ? values.fecha.split("T")[0] : ''}
+    onChange={(e) => setValues({ ...values, fecha: e.target.value })}
+  />
+</FloatingLabel>
+            
             <Button className="primary-button" type="submit" onClick={handleClose}>
               Editar
             </Button>

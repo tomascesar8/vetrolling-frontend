@@ -1,0 +1,10 @@
+.table-row {
+  cursor: pointer;
+}
+
+.selected-row td{
+  background-color: #9289b6 !important;
+  color: #fff !important;
+  /* font-weight: 400; */
+  /* border: 2px; */
+}
