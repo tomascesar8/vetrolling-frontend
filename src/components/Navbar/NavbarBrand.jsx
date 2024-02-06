@@ -18,7 +18,7 @@ export const NavbarBrand = () => {
 
   return (
     <>
-      <Navbar expand="xxl" sticky="top" className="bg-dark bg-gradient bg-opacity-85 pt-4 pb-4 ">
+      <Navbar expand="xl" sticky="top" className="bg-dark bg-gradient bg-opacity-85 pt-4 pb-4 ">
         <Container>
           <Link to="/" className='text-decoration-none'>
             <Navbar.Brand className='title-logo text-white fw-bolder'>

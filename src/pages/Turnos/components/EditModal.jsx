@@ -5,7 +5,7 @@ import { ADD_TURNOS_VALUES } from "../../../constanst";
 import useForm from "../../../hooks/useForm";
 
 const EditModal = ({ show, handleClose, selected, getTurnos }) => {
-  const [usuarios, setUsuarios] = useState([]);
+  const [ setUsuarios] = useState([]);
   const [veterinarios, setVeterinarios] = useState([]);
 
   const getUsuarios = async () => {
@@ -64,15 +64,15 @@ const EditModal = ({ show, handleClose, selected, getTurnos }) => {
     ADD_TURNOS_VALUES,
     updateTurno
   );
-  // useEffect(() => {
-  //   console.log(values);
-  // }, [values]); 
+  useEffect(() => {
+    console.log(values);
+  }, [values]); 
 
   return (
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Editar Turno</Modal.Title>
+          <Modal.Title>Editar Turno de <span className="text-primary">{values?.user?.nombre} ({values?.user?.pet?.nombre})</span></Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
@@ -87,14 +87,6 @@ const EditModal = ({ show, handleClose, selected, getTurnos }) => {
                 // value={values.detalleCita}
               />
             </FloatingLabel>
-            
-            {/* <select name="veterinarian" id="veterinarian" onChange={(e) => setValues({ ...values, veterinarian: e.target.value })}>
-              {veterinarios.map(veterinario => (
-                <option key={veterinario._id} value={veterinario._id}>
-                  {veterinario.nombre}
-                </option>
-              ))}
-            </select> */}
 
             <FormGroup controlId="veterinarian" className="mb-3">
               <FormLabel className="ms-2">Veterinario:</FormLabel>
