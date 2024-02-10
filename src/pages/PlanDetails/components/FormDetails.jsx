@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
 import { Form, FloatingLabel, Button } from 'react-bootstrap';
-import { BiUserPin } from 'react-icons/bi';
+// import { BiUserPin } from 'react-icons/bi';
 
 const FormPlans = () => {
   const form = useRef();
@@ -18,7 +18,7 @@ const FormPlans = () => {
         Swal.fire({
           icon: 'success',
           title: 'Mensaje enviado',
-          text: 'Gracias por tu consulta. Nos pondremos en contacto contigo pronto.',
+          text: 'Gracias por tu consulta. Te enviamos un email con toda la información y pronto nos pondremos en contacto contigo.',
         });
         // Redirigir al usuario a la página de landing
         navigate('/');
@@ -35,7 +35,8 @@ const FormPlans = () => {
 
   return (
     <>
-      <h2>Información de planes</h2>
+      <h2 className='mt-5'>Información de planes</h2>
+      <p className='mt-3 mb-5'>Ingresá tu email y te enviaremos toda la información sobre nuestros planes de salud para tus mascotas</p>
       <Form ref={form} onSubmit={sendEmail} className='form-plans d-flex flex-column text-start'>
         <FloatingLabel controlId="from_name" label="Nombre">
           <Form.Control type="text" name="from_name" required />
@@ -49,7 +50,7 @@ const FormPlans = () => {
           <Form.Control type="tel" name="phone" required />
         </FloatingLabel>
 
-        <Button className='mt-3' type="submit">Enviar consulta</Button>
+        <Button className='mt-3' type="submit">Recibir información</Button>
       </Form>
     </>
   );

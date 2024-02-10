@@ -11,6 +11,7 @@ import AboutUs from "./pages/AboutUs/AboutUs";
 import { Toaster } from "sonner";
 import Turnos from "./pages/Turnos/AdminTurnos";
 import AdminUsers from "./pages/AdminUsers/AdminUsers";
+import Register from "./pages/Register/Register";
 
 
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/admin/appointments" element={<PrivateRoute><Turnos /></PrivateRoute>} />
             <Route path="/admin/users" element={<PrivateRoute><AdminUsers /></PrivateRoute>} />
             <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/register" element={<PublicRoute><Register/></PublicRoute>} />
             {/* <Route path="/admin" element={<PrivateRoute><AdminPage /></PrivateRoute>} /> */}
       </Routes>
     </Router>

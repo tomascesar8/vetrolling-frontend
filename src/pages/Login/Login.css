@@ -1,11 +1,12 @@
-.login-portada{
+.login-body{
   background-image: url('./../../assets/img/login-background.avif');
   background-position: center;
-  height: 100vh;
+  height: 86.4vh !important;
   background-size: cover;
 }
-.login-portada-text{
-  height: 100vh;
+
+.login-form{
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;

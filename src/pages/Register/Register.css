@@ -1,0 +1,12 @@
+.register-form{
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  max-width: 350px;
+  text-align: start;
+}
+.register-form input{
+  margin-bottom: 0px;
+}
+
