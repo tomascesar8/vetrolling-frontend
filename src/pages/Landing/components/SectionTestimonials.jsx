@@ -12,9 +12,9 @@ const SectionTestimonials = () => {
   }, []);
 
   return (
-    <section className="container-box pt-5">
+    <section className="container-box pt-5 col-12">
       <Title title="Testimonios de nuestros clientes" />
-      <div className="d-flex flex-row justify-content-between gap-5">
+      <div className="d-flex flex-row justify-content-center flex-wrap flex-md-nowrap">
         {comments.map((comment) => (
           <CardTestimonial
             key={comment._id}

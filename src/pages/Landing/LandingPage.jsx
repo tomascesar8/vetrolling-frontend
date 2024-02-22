@@ -8,6 +8,7 @@ import SectionPlanes from "./components/SectionPlanes"
 import SectionProducts from "./components/SectionProducts"
 import SectionServices from "./components/SectionServices"
 import SectionTestimonials from "./components/SectionTestimonials"
+import "./LandingPage.css"
 
 export const LandingPage = () => {
   
@@ -15,7 +16,7 @@ export const LandingPage = () => {
     <>
       <NavbarBrand />
       <Hero />
-      <SectionPlanes ButtonType={ButtonType} Title={Title} />
+      <SectionPlanes ButtonType={ButtonType} Title={Title}/>
       <SectionServices />
       <SectionTestimonials />
       <CallToAction />

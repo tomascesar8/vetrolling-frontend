@@ -11,16 +11,18 @@ const SectionServices = () => {
   }, []);
 
   return (
-    <section className="pt-4">
+    <section className="pt-4 container">
       <div className="container-title">
         <Title
           title='Servicios'
           description='Brindamos los mejores servicios para el cuidado de tus mascotas'
         />
       </div>
-      <section className='container-card svg'>
+      <section className='container-card svg row'>
         {services.length > 0 && services.map((servicio) => (
           <CardImage
+            clasesCardServices={"col-12 col-md-6 col-xl-3 align-items-center border-0"}
+            imgServices={"img-service"}
             key={servicio._id} // Utilizando el ID del servicio como clave única
             title={servicio.nombre}
             urlImage={servicio.imagen}

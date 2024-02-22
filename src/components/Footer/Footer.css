@@ -1,0 +1,100 @@
+:root {
+    --color-greyBlue: rgb(54, 72, 82);
+    --color-siena-transparent: #5f01115b;
+    --color-azul-verde: #295a5e;
+    --color-verde-aguila: #1f929a;
+    --color-font-footer-mg: #8FEAFF;
+    --color-lightBlue: rgb(94, 187, 240);
+    --color-azul-claro: #21608d;
+    --color-blue: rgb(43, 117, 160); 
+    --color-navbar-scroll: #0f3b5f;
+    --color-azul-cuevana: rgb(20, 31, 74);
+    --color-blue-main: #141d32;
+    --color-footer-mg: #0a1a2a;
+    /* --color-siena-oscuro: #19079b; */
+  
+    --color-celeste-oscuro-mas: rgb(67, 125, 159) !important;
+    --color-celeste-oscuro-menos: rgb(89, 132, 157) !important;
+  
+      --color-cadete: #212738;
+      --color-verde-a: #0F5257;
+      --color-lavanda: #6D6875;
+      --color-gris-topo: #7A7682;
+      --color-gris-claro: #C8D0CD;
+      --color-gainsboro: #DCE2E5;
+      --color-siena-oscuro: #2c0f14;
+      --color-rojo-toscano: gold;
+      --color-malva-topo: #926269;
+      --color-siena-oscuro2: #21090d;
+      --color-footer: #1B1B1E;
+  }
+
+
+.footer{
+    height: 10%;
+}
+
+@media screen and (min-width: 576px) {
+  .icons-footer{
+    transform: translateX(-7%);
+  }
+}
+@media screen and (min-width: 768px) {
+    .footer-links{
+    margin-left: 25% !important;
+    }
+}
+
+@media screen and (max-width: 367px) {
+    .container-footer-links{
+    transform: translateX(-5%) !important;
+    }
+}
+.icons-redes{
+  height: 80px;
+  width: 80px;
+  font-size: 60px !important;
+}
+.icons-links-redes{
+  color: var(--color-blue) !important;
+  color: var(--color-verde-aguila) !important;
+}
+.footer-links a{
+  /* color: var(--color-blue) !important; */
+  color: rgb(67, 125, 159) !important;
+
+  font-weight: 750;
+}
+.container-footer-links{
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+.container-logo{
+  font-size: 35px !important;
+  transform: translateX(-5%);
+  text-decoration: none;
+  /* color: var(--color-blue) !important; */
+  color: var(--color-verde-aguila) !important;
+}
+.container-footer-bottom{
+  /* color: var(--color-verde-aguila) !important; */
+  color: rgb(125, 138, 145) !important;
+  font-weight: 700;
+}
+.footer-landing{
+  /* background-color: #10161c; */
+  background: linear-gradient(rgba(20, 29, 50) 0%, rgba(20, 29, 50, .8) 100% ) !important;
+}
+.footer-landing a:hover{
+  color: var(--color-font-footer-mg) !important;
+}
+.footer-links{
+  margin-left: -20% !important;
+}
+
+.container-icons-redes{
+  display: flex !important;
+  height: 40px;
+  align-items: center !important;
+}

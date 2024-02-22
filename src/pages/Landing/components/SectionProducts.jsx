@@ -11,10 +11,9 @@ const SectionProducts = () => {
   }, []);
 
   return (
-    <section className="container text-center pt-4">
+    <section className="container-fluid text-center pt-4">
       <Title title="Nuestros productos" />
-      <div className="col gap-4 mt-5">
-        <div className="row gap-4">
+        <div className="col-12 gap-4 mt-5 d-flex flex-wrap justify-content-center">
           {products.map((product) => (
             <CardProduct
               key={product._id} 
@@ -24,7 +23,6 @@ const SectionProducts = () => {
             />
           ))}
         </div>
-      </div>
     </section>
   );
 };

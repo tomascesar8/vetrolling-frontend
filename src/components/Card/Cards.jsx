@@ -1,19 +1,21 @@
-// Cards.jsx
 import React from 'react';
 import { Card, Image } from 'react-bootstrap';
 
-export const CardImage = ({ children, title, urlImage, typeImg }) => {
+export const CardImage = ({ children, title, urlImage, typeImg, clasesCardServices, imgServices, clasesCardPlans, imgPlans }) => {
+  const cardClass = clasesCardServices || clasesCardPlans || '';
+  const imgClass = imgServices || imgPlans || '';
+  const isSvg = typeImg === 'svg';
   return (
-    <Card className={` ${typeImg === 'svg' ? 'card-svg' : 'border-none'}`}>
+    <Card className={cardClass}>
       {urlImage && (
-        typeImg === 'svg' ? (
+        isSvg ? (
           <Image
             variant="top"
             src={urlImage}
             alt={title}
-            width={`${typeImg === 'svg' ? 60 : 120}`}
-            height={`${typeImg === 'svg' ? 60 : 120}`}
-            className={`${typeImg === 'svg' ? 'card-svg-img' : ' '}`}
+            width={60}
+            height={60}
+            className={`${imgClass} ${isSvg ? 'card-svg-img' : ''}`}
           />
         ) : (
           <Image
@@ -23,15 +25,17 @@ export const CardImage = ({ children, title, urlImage, typeImg }) => {
             alt={title}
             width={120}
             height={120}
+            className={imgClass}
           />
         )
       )}
       <Card.Body className='text-center d-flex flex-column align-items-center justify-content-center'>
         <Card.Title><h3>{title}</h3></Card.Title>
-        <div className={`${typeImg === 'svg' ? 'card-svg-text' : ''}`}>
+        <div className={isSvg ? 'card-svg-text' : ''}>
           {children}
         </div>
       </Card.Body>
     </Card>
   );
 };
+

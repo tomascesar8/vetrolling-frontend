@@ -3,7 +3,7 @@ import { Card, Image } from 'react-bootstrap'
 export const CardTestimonial = ({ children, subject, image }) => {
   return (
     <Card  style={{ width: '40rem', margin: '2rem', borderRadius: '16px', backgroundColor: '#f5f5f5'}}>
-      <Card.Body>
+      <Card.Body className='p-0 p-sm-3'>
         <Image
           variant="top" 
           src='/public/assets/icons/quote.svg'
@@ -18,7 +18,7 @@ export const CardTestimonial = ({ children, subject, image }) => {
             {children}{' '}
           </p>
           <footer className="blockquote-footer mt-3">
-            <div className="d-flex flex-row align-items-center gap-4">
+            <div className="d-flex flex-row align-items-center gap-2 gap-lg-3 justify-content-start ms-4 ms-sm-3 ms-md-5 mt-4">
               <Image
                   variant="bottom" 
                   src={image}
@@ -27,7 +27,7 @@ export const CardTestimonial = ({ children, subject, image }) => {
                   height={60}
                   roundedCircle
               />
-              <div className="d-flex flex-column">
+              <div className="d-flex flex-column ms-sm-2">
                 <h5>{subject}</h5>
               </div>
             </div>

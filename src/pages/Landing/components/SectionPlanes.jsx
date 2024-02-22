@@ -12,11 +12,11 @@ const SectionPlanes = ({ButtonType, Title}) => {
   }, []);
 
   return (
-    <section className="container-box">
+    <section className="container-fluid container-box">
       <Title
         title='Conocé nuestra cartilla en planes de salud'
       />
-      <div className="container-card">
+      <div className="container-card row container-cards-plans">
         {planes.map(plan => (
           <CardPlans
             key={plan._id}

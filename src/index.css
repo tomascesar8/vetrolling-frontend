@@ -6,7 +6,7 @@ html {
 }
 
 #root{
-  padding: 0;
+  padding: 0 !important;
 }
 
 .description {
@@ -14,33 +14,44 @@ html {
 }
 
 .container-box {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   margin-bottom: 5rem;
   margin-top: 10rem;
+  /* width: 95vw !important; */
+  /* padding-right: 1rem; */
+  /* padding-left: 1rem; */
 }
 
-.container-hero {
+/* .container-hero {
   margin-top: 6rem;
-}
+} */
 
 .container-title {
   text-align: center;
   margin-top: 10rem;
 }
 
-.container-card {
+/* .container-card {
   margin: 2rem;
   display: flex;
   flex-direction: row;
   justify-content:space-between;
   align-items: center;
+} */
+
+/* .card-body{
+  padding: 0 !important;
+} */
+
+.card-service{
+  /* width: 200px !important; */
 }
 
 .container-card.svg {
-  margin: 5rem;
-  gap: 5rem;
+  /* margin: 5rem; */
+  /* gap: 5rem; */
   justify-content: center;
 }
 
@@ -64,14 +75,14 @@ html {
   font-weight: bold;
 }
 
-.border-none {
+/* .border-none {
   border: none;
   width: 32rem;
   height: 20rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 
 .blockquote-footer::before {
   content: none;
