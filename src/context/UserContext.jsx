@@ -17,6 +17,7 @@ const UserProvider = ({children})=>{
       setAuth(true);
       localStorage.setItem('token',data.token);
       toast.success('¡Bienvenido de nuevo ' + data.user.nombre + '!');
+      console.log(auth, 'auth');
     } catch (error) {
       console.log(error, "error en el proceso de logeo");
       toast.error('Error: ' + error.response.data.message);
@@ -30,12 +31,17 @@ const UserProvider = ({children})=>{
   const getAuth = async () => {
     const token = localStorage.getItem('token');
     if (token){
+      console.log('token existente');
       authToken(token)
       try {
+        console.log('authenticando...');
         const response = await axiosClient.get('/users/auth');
         setAuth(true);
         setUser(response.data.user);
+        // alert('auth joia')
+
       } catch (error) {
+        // alert('auth choriau')
         console.log(error);
         setAuth(false);
         setUser(null);

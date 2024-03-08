@@ -18,8 +18,8 @@ export const NavbarBrand = () => {
 
   return (
     <>
-      <Navbar expand="xl" sticky="top" className="bg-dark bg-gradient bg-opacity-85 pt-4 pb-4 ">
-        <Container>
+      <Navbar expand={isLoginPage ? true : "xl"} sticky="top" className="bg-dark bg-gradient bg-opacity-85 pt-sm-8 py-sm-3 pt-md-4">
+        <Container> 
           <Link to="/" className='text-decoration-none'>
             <Navbar.Brand className='title-logo text-white fw-bolder'>
               VETROLLING
@@ -33,10 +33,10 @@ export const NavbarBrand = () => {
             </Navbar.Brand>
           </Link>
           {isLoginPage ? (
-            <Navbar.Collapse className="justify-content-end" id="navbarNav">
-              <Nav className="ml-auto">
-                <Link to="/register" className='text-white btn bg-info bg-opacity-75 fw-bold'>
-                  <span className="px-2">Registro</span>
+            <Navbar.Collapse className="justify-content-end me-3" id="navbarNav">
+              <Nav className="ml-auto p-0">
+                <Link to="/register" className='register-button'>
+                  <span className="px-2 text-white btn bg-info bg-opacity-75 fw-bold">Registro</span>
                 </Link>
               </Nav>
             </Navbar.Collapse>
@@ -50,12 +50,13 @@ export const NavbarBrand = () => {
                   {user ? (
                     user.role === 'admin' ? (
                         <>
+                          <Link to="/admin/home" className='text-white nav-link'>Admin</Link>
                           <Link to="/admin/users" className='text-white nav-link'>Usuarios</Link>
                           <Link to="/admin/appointments" className='text-white nav-link'>Turnos</Link>
                           <Link to="/login" onClick={logout} className="nav-link fw-bold btn bg-danger text-white ms-3">
                             <span className="px-2">Cerrar sesión</span>
                           </Link>
-                          <p>{user.role}</p>
+                          {/* <p>{user.role}</p> */}
                         </>
                     ) : (
                       <>
@@ -66,7 +67,7 @@ export const NavbarBrand = () => {
                         <Link to="/login" onClick={logout} className="nav-link fw-bold btn bg-danger text-white ms-3">
                           <span className="px-2">Cerrar sesión</span>
                         </Link>
-                        <p>{user.role}</p>
+                        {/* <p>{user.role}</p> */}
                       </>
                     )
                     ) : (

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { FaInstagram, FaTwitter, FaFacebook, FaWhatsapp, FaSun, FaCloud, FaCloudSun, FaCloudMoon, FaCloudShowersHeavy, FaSnowflake, FaBolt, FaSmog, FaMoon } from 'react-icons/fa';
+import { FaInstagram, FaFacebook, FaWhatsapp, FaSun, FaCloud, FaCloudSun, FaCloudMoon, FaCloudShowersHeavy, FaSnowflake, FaBolt, FaSmog, FaMoon } from 'react-icons/fa';
 import { IoLocationOutline } from 'react-icons/io5';
 import { Row, Col, Container } from 'react-bootstrap';
 import './Footer.css';
@@ -14,8 +14,7 @@ export const Footer = () => {
     location: '',
     temperature: '',
     condition: '',
-    icon: '',
-    country: ''
+    icon: ''
   });
 
   const capitalizeFirstLetter = (string) => {
@@ -27,16 +26,15 @@ export const Footer = () => {
       try {
         const response = await fetch(`${api.base}weather?lat=${latitude}&lon=${longitude}&appid=${api.key}&lang=es`);
         const data = await response.json();
-        console.log(data);
-        console.log(data.weather[0].icon);
+        // console.log(data);
+        // console.log(data.weather[0].icon);
         setWeatherData({
           location: capitalizeFirstLetter(data.name),
           temperature: `${Math.round(data.main.temp - 273.15)}°C`,
           condition: capitalizeFirstLetter(data.weather[0].description),
-          icon: data.weather[0].icon,
-          country: data.sys[0].country
+          icon: data.weather[0].icon
         });
-        console.log(weatherData);
+        // console.log(weatherData);
       } catch (error) {
         console.error('Error fetching weather data:', error);
       }
@@ -58,7 +56,7 @@ export const Footer = () => {
     };
     
     getLocation();
-    console.log(weatherData);
+    // console.log(weatherData);
   }, []);
 
   const mapConditionToIcon = (icon) => {
@@ -94,18 +92,18 @@ export const Footer = () => {
       case '50n':
         return <FaSmog />;
       default:
-        return <p className='text-center text-sm-start pe-sm-3'>Sin información de clima disponible</p> // Cambia por el ícono por defecto que prefieras
+        return 'Sin información de clima disponible' // Cambia por el ícono por defecto que prefieras
     }
   };
 
   return (
     <Container fluid className="mt-5 pt-5 border-top">
       <Row className='contaier d-flex align-items-center justify-content-center'>
-        <Col sm={12} md={4} lg={4} className="pb-0 pb-lg-5 d-flex justify-content-center align-items-center mb-0 mb-sm-2 order-2 col-12 ps-md-0 ps-lg-5">
-          <div className='text-start text-sm-center'>
-            <p className="fs-5 my-2 py-2 ">
-              {weatherData.location}  {weatherData.temperature}  <br />
-              {weatherData.condition} {mapConditionToIcon(weatherData.icon)}
+        <Col sm={12} md={4} lg={4} className="pb-0 pb-lg-5 ps-md-0 ps-lg-5 pe-lg-5 d-flex justify-content-center align-items-center mb-0 mb-sm-2 order-2 col-12">
+          <div className='text-start text-sm-center pe-lg-5'>
+            <p className="fs-5 my-2 py-4 py-sm-2 pt-5 pt-sm-4 d-flex flex-column text-start ps-lg-5">
+              <span className='pe-2'>{weatherData.location} {mapConditionToIcon(weatherData.icon)}</span> 
+               <span className='pe-2'>{weatherData.condition} {weatherData.temperature}</span>
             </p>
           </div>
         </Col>
@@ -130,8 +128,8 @@ export const Footer = () => {
             </a>
           </div>
         </Col>
-        <Col sm={4} md={3} lg={3} className="pb-sm-5 icons-footer col-12 col-md-4 d-flex justify-content-evenly align-items-center order-1">
-          <div className="container-icons-redes d-flex justify-content-between my-4 my-sm-0">
+        <Col sm={4} md={3} lg={3} className="pb-sm-5 ps-lg-5 icons-footer col-12 col-md-4 d-flex justify-content-evenly align-items-center order-1">
+          <div className="container-icons-redes d-flex justify-content-between my-4 my-sm-0 ps-md-5">
             <div className="icons-redes footer-icon-insta text-light">
               <a className="icons-links-redes" href="/error404.html">
                 <FaInstagram />

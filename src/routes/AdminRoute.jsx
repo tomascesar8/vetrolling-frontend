@@ -2,27 +2,21 @@ import { useContext, useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
-const PublicRoute = ({children}) => {
+const AdminRoute = ({children}) => {
   const {user, auth, getAuth} = useContext(UserContext);
-  const [loading, setLoading] = useState(true);
-  
+  const [loading, setloading] = useState(true);
+
   useEffect(()=>{
     const fetchData = async () => {
       await getAuth();
-      setLoading(false);
+      setloading(false);
     }
     fetchData();
   },[])
   
   return ( 
-    loading ? <div>Cargando...</div> 
-    : 
-    !auth ? children 
-    : 
-    user && user.role === 'admin' ? <Navigate to='/admin/home' /> 
-    : 
-    <Navigate to='/' />
-  );
+    loading ? <div>Cargando...</div> : user && user.role === 'admin' ? children : <Navigate to='/'/>
+  );  
 }
  
-export default PublicRoute;
+export default AdminRoute;

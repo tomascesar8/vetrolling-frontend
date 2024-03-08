@@ -1,4 +1,4 @@
-import { Modal, Button, FloatingLabel, Form, FormGroup, FormLabel, FormSelect } from "react-bootstrap";
+import { Modal, Button, FloatingLabel, Form, FormGroup, FormLabel, FormSelect, ModalTitle } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axiosClient from "../../../config/axiosClient";
 import { ADD_TURNOS_VALUES } from "../../../constanst";
@@ -71,8 +71,11 @@ const EditModal = ({ show, handleClose, selected, getTurnos }) => {
   return (
     <>
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Editar Turno de <span className="text-primary">{values?.user?.nombre} ({values?.user?.pet?.nombre})</span></Modal.Title>
+        <Modal.Header closeButton >
+          <Modal.Title className="ms-3 d-flex flex-column align-items-start">
+            <h2>Editar turno de {values?.user?.nombre}</h2>
+            <h6 className="mt-1 text-muted">Mascota: <span className="text-primary fs-5">{values?.user?.pet?.nombre}</span></h6>
+          </Modal.Title> 
         </Modal.Header>
         <Modal.Body>
           <form onSubmit={handleSubmit}>
@@ -104,25 +107,6 @@ const EditModal = ({ show, handleClose, selected, getTurnos }) => {
               </FormSelect>
             </FormGroup>
 
-            {/* <label htmlFor="veterinarian">Veterinario: </label>
-            <select
-              name="veterinarian"
-              id="veterinarian"
-              onChange={(e) => setValues({ ...values, veterinarian: e.target.value })}
-              value={values.veterinarian._id}
-            >
-              {veterinarios.map((veterinario) => {
-                console.log(values.veterinarian._id);
-                console.log(`veterinario._id: ${veterinario._id}`);
-                
-                return (
-                  <option key={veterinario._id} value={veterinario._id}>
-                    {veterinario.nombre}
-                  </option>
-                );
-              })}
-            </select> */}
-
             <FloatingLabel controlId="floatingHora" label="Hora">
               <Form.Control
                 type="time"
@@ -134,15 +118,15 @@ const EditModal = ({ show, handleClose, selected, getTurnos }) => {
             </FloatingLabel>
  
             <FloatingLabel controlId="floatingFecha" label="Fecha">
-  <Form.Control
-    type="date"
-    className="mb-4"
-    onKeyUp={handleKeyUp}
-    name="fecha"
-    value={values.fecha ? values.fecha.split("T")[0] : ''}
-    onChange={(e) => setValues({ ...values, fecha: e.target.value })}
-  />
-</FloatingLabel>
+              <Form.Control
+                type="date"
+                className="mb-4"
+                onKeyUp={handleKeyUp}
+                name="fecha"
+                value={values.fecha ? values.fecha.split("T")[0] : ''}
+                onChange={(e) => setValues({ ...values, fecha: e.target.value })}
+              />
+            </FloatingLabel>
             
             <Button className="primary-button" type="submit" onClick={handleClose}>
               Editar

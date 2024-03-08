@@ -1,7 +1,7 @@
 .login-body{
   background-image: url('./../../assets/img/login-background.avif');
   background-position: center;
-  height: 86.4vh !important;
+  height: 86vh !important;
   background-size: cover;
 }
 
@@ -13,12 +13,26 @@
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, .7);
+  font-size: 1rem;
+  padding-bottom: 100px;
 }
 .login-icon{
   color: var(--royal-purple);
   font-size: 100px;
   margin-bottom: 20px;
 }
-.login-input{
-  width: 50vw !important;
+.login-input {
+  width: 450px !important;
+}
+@media (max-width: 576px) {
+  .login-input {
+    width: 380px !important;
+    min-width: auto !important;
+  } 
+}
+@media (max-width: 450px) {
+  .login-input {
+    width: 80vw !important;
+    min-width: auto !important;
+  } 
 }

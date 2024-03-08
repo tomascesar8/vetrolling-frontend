@@ -28,33 +28,6 @@ const Users = () => {
     }
   };
 
-  // const deleteUser = async () => {
-  //   try {
-  //     // Obtener la información del usuario antes de eliminarlo
-  //     const userToDelete = users.find((user) => user._id === selectedUser);
-  //     console.log(selectedUser);
-  //     console.log(userToDelete);
-  //     // Eliminar la mascota vinculada al usuario
-  //     if (userToDelete.pet) {
-  //       console.log(userToDelete.pet._id);
-  //       await axiosClient.delete(`/pets/${userToDelete.pet._id}`);
-  //       console.log("La mascota se elimino correctamente");
-  //     }
-  //     // Eliminar el usuario
-  //     const response = await axiosClient.delete(`/users/${selectedUser}`);
-  //     console.log(response);
-
-  //     // Actualizar la lista de usuarios excluyendo el usuario eliminado
-  //     setUsers(users.filter((user) => user._id !== selectedUser));
-
-  //     // Limpiar la selección actual
-  //     setSelectedUser(null);
-  //   } catch (error) {
-  //     console.log('Error al borrar el usuario');
-  //     console.log(error);
-  //   }
-  // };
-
   const deleteUser = async () => {
     try {
       // Obtener la información del usuario antes de eliminarlo

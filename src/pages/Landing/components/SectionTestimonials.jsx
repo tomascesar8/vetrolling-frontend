@@ -12,7 +12,7 @@ const SectionTestimonials = () => {
   }, []);
 
   return (
-    <section className="container-box pt-5 col-12">
+    <section className="container-box-testimonials pt-0 pt-md-5 pb-0 col-12">
       <Title title="Testimonios de nuestros clientes" />
       <div className="d-flex flex-row justify-content-center flex-wrap flex-md-nowrap">
         {comments.map((comment) => (

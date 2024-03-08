@@ -1,4 +1,4 @@
-.register-form{
+/* .register-form{
   padding-top: 30px;
   display: flex;
   flex-direction: column;
@@ -9,4 +9,26 @@
 .register-form input{
   margin-bottom: 0px;
 }
+ */
 
+
+ /* RegisterForm.css */
+
+.form-register {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 3em;
+  margin-bottom: 20px;
+}
+
+/* Media query para estilos responsivos */
+@media (max-width: 576px) {
+  h5 {
+    font-size: 1.2rem !important; /* Cambiar el tamaño de fuente a h6 */
+  }
+}

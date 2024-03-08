@@ -12,9 +12,9 @@ const SectionServices = () => {
 
   return (
     <section className="pt-4 container">
-      <div className="container-title">
+      <div className="container-title-services mt-2 mt-sm-5">
         <Title
-          title='Servicios'
+          title='Nuestros Servicios'
           description='Brindamos los mejores servicios para el cuidado de tus mascotas'
         />
       </div>

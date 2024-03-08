@@ -6,6 +6,8 @@ const useForm = (initialValues, submit, validation) => {
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false)
 
+  console.log(values);
+
   useEffect(()=>{
     if(submitting){
       if(Object.keys(errors).length===0){
@@ -43,9 +45,6 @@ const useForm = (initialValues, submit, validation) => {
       });
     }
   };
-
-
-
 
   const handleSubmit = (e)=>{
     e.preventDefault();

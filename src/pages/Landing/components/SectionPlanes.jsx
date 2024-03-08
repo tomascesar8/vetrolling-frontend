@@ -16,7 +16,7 @@ const SectionPlanes = ({ButtonType, Title}) => {
       <Title
         title='Conocé nuestra cartilla en planes de salud'
       />
-      <div className="container-card row container-cards-plans">
+      <div className="container-card row container-cards-plans mb-2 mb-sm-4">
         {planes.map(plan => (
           <CardPlans
             key={plan._id}
@@ -27,7 +27,7 @@ const SectionPlanes = ({ButtonType, Title}) => {
           />
         ))}
       </div>
-      <Link to="/plansdetails" className="btn btn-primary btn-lg mt-4">
+      <Link to="/plansdetails" className="btn btn-primary btn-lg mt-5">
         Ver detalle de planes
       </Link>
     </section>

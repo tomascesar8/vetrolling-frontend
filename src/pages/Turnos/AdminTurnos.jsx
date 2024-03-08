@@ -7,7 +7,7 @@ import { NavbarBrand } from "../../components/Navbar/NavbarBrand";
 import "./AdminTurnos.css";
 import Swal from "sweetalert2";
 
-const Turnos = () => {
+const Turnos = ({ showButtons = true, showNavbar = true }) => {
   const [turnos, setTurnos] = useState([]);
   const [show, setShow] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
@@ -82,8 +82,10 @@ const Turnos = () => {
 
   return (
     <>
-      <NavbarBrand />
+      {showNavbar && <NavbarBrand />}
       <Container>
+        {showButtons && (    
+        <>
         <Button variant="success" onClick={handleShow} className="m-3">
           Agregar Turno
         </Button>
@@ -98,6 +100,8 @@ const Turnos = () => {
         <Button variant="danger" onClick={deleteTurno} className="m-3" disabled={!selected}>
           Borrar Turno
         </Button>
+        </>
+      )}
         <Table bordered hover>
           <thead>
             <tr>

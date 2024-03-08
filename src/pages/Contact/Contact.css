@@ -1,4 +1,4 @@
-.main-form-plans {
+.contact-form{
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
@@ -10,14 +10,12 @@
   margin-bottom: 20px;
 }
 
-.form-plans {
-  max-width: 400px;
-  margin: 0 auto;
-  /* padding: 20px; */
-}
+/* .form-control {
+  margin: 0px 50px !important;
+} */
 
 @media (max-width: 576px) {
-  h5 {
-    font-size: 1.2rem !important; /* Change to h6 font size */
-  }
+    h5 {
+        font-size: 1.2rem !important; /* Change to h6 font size */
+    }
 }

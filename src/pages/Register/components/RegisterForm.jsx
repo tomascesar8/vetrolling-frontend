@@ -15,18 +15,6 @@ const RegisterForm = ({ onSubmit }) => {
     }
   };
 
-  // const validation = (values) => {
-  //   const errors = {};
-
-  //   if (!values.nombre.trim()) {
-  //     errors.nombre = 'El nombre es obligatorio';
-  //   }
-
-  //   // Puedes agregar más validaciones según tus requisitos
-
-  //   return errors;
-  // };
-
   const validation = (values) => {
     const errors = {};
 
@@ -83,7 +71,10 @@ const RegisterForm = ({ onSubmit }) => {
   } = useForm(initialValues, onSubmit, validation);
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <>
+    <Form onSubmit={handleSubmit} className='form-register'>
+    <h2 className='mt-2 mb-3'>Creá tu cuenta</h2>
+    {/* <h5 className='text-center my-3 fst-italic'>Creá tu cuenta en VetRolling</h5> */}
       <FloatingLabel controlId="nombre" label="Nombre" className="mb-3">
         <Form.Control
           type="text"
@@ -184,10 +175,11 @@ const RegisterForm = ({ onSubmit }) => {
         {/* {console.log('Pet Raza:', values.pet.raza)} */}
       </FloatingLabel>
 
-      <Button variant="primary" type="submit">
+      <Button className='mt-3 fw-bold' variant="primary" type="submit">
         Registrarse
       </Button>
     </Form>
+    </>
   );
 };
 
