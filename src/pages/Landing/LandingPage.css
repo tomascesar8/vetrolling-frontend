@@ -44,3 +44,9 @@
   opacity: 0.55;
   z-index: 0;
 }
+
+@media screen and (max-width: 372px){
+  .hero-buttons .bg-secondary {
+    margin-bottom: .55rem;
+  }
+}

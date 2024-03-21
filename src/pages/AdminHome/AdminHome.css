@@ -1,0 +1,30 @@
+.btn-admin-home-turnos{
+  font-size: 1.2rem !important;
+}
+
+@media (max-width: 768px) {
+  .btn-admin-home-turnos{
+    font-size: 1.2rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .title-admin-home p{
+    font-size: 1rem !important;
+    padding: 10px 10px;
+  }
+  .btn-admin-home-turnos{
+    font-size: 1rem !important;
+  }
+}
+
+@media (max-width: 425px) {
+  .btn-admin-home-turnos{
+    transform: translateY(-10px);
+  }
+}
+
+
+.btn-admin-home-turnos{
+  margin-bottom: 5rem;
+}

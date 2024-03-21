@@ -1,7 +1,7 @@
 .login-body{
   background-image: url('./../../assets/img/login-background.avif');
   background-position: center;
-  height: 86vh !important;
+  height: 92vh !important;
   background-size: cover;
 }
 
@@ -24,15 +24,42 @@
 .login-input {
   width: 450px !important;
 }
+
+.invalid-feedback{
+  padding-top: 4px !important;
+  /* font-size: 10.5px !important; */
+}
+
+
+@media (max-width: 768px) {
+  .invalid-feedback{
+    padding-top: 4px !important;
+    /* font-size: .9rem !important; */
+  }
+}
+
 @media (max-width: 576px) {
   .login-input {
     width: 380px !important;
     min-width: auto !important;
   } 
+  .invalid-feedback{
+    font-size: .8rem !important;
+    padding-top: 4px !important;
+  }
 }
 @media (max-width: 450px) {
-  .login-input {
+  .login-input, .invalid-feedback {
     width: 80vw !important;
     min-width: auto !important;
   } 
+  .invalid-feedback{
+    font-size: .7rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .invalid-feedback{
+    font-size: .6rem !important;
+  }
 }

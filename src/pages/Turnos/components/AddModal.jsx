@@ -33,8 +33,8 @@ const AddModal = ({ show, handleClose, setTurnos, turnos, getTurnos, userId }) =
       console.log(response.data);
       turnos?.setTurnos([...turnos, response.data.turno]);
       handleClose();
-      console.log('hola pai'); // Cerrar el modal después de agregar el turno
       getTurnos?.getTurnos(); // Actualizar la lista de turnos después de agregar uno nuevo
+      console.log('hola pai'); // Cerrar el modal después de agregar el turno
     } catch (error) {
       console.log(error);
     }

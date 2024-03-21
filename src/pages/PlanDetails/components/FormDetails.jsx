@@ -1,4 +1,4 @@
-// import React, { useRef } from 'react';
+// import { useRef } from 'react';
 // import emailjs from '@emailjs/browser';
 // import Swal from 'sweetalert2';
 // import { useNavigate } from 'react-router-dom';
@@ -96,7 +96,7 @@ const FormPlans = () => {
   return (
     <>
         <h2 className='mt-1 mb-2 mt-sm-2 mb-sm-3'>Información de planes</h2>
-        <p className='mt-3 mt-sm-4  mb-3 mb-sm-5 fs-5'>Te enviaremos toda la información sobre nuestros planes de salud para tus mascotas</p>
+        <p className='subtitle-plans mt-3 mt-sm-4  mb-3 mb-sm-5 fs-6'>Te enviaremos toda la información sobre nuestros planes de salud para tus mascotas</p>
         <Form ref={form} onSubmit={sendEmail} className='form-plans d-flex flex-column text-start'>
           <FloatingLabel className='mb-3' controlId="from_name" label="Nombre">
             <Form.Control type="text" name="from_name" required />
@@ -110,7 +110,7 @@ const FormPlans = () => {
             <Form.Control type="tel" name="phone" required />
           </FloatingLabel>
 
-          <Link className='btn btn-primary mt-3 mx-auto' type="submit">Recibir información</Link>
+          <Button className='btn btn-primary mt-3 mx-auto mt-3' type="submit">Recibir información</Button>
         </Form>
     </>
   );

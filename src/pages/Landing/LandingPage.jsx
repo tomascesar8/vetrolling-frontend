@@ -16,6 +16,7 @@ import AdminHome from "../AdminHome/AdminHome"
 export const LandingPage = () => {
   const { user, auth, getAuth } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
     const fetchData = async () => {
       await getAuth();
@@ -33,7 +34,7 @@ export const LandingPage = () => {
     return (
       <>
         <NavbarBrand />
-        <Hero />
+        <Hero auth={auth}/>
         <SectionPlanes ButtonType={ButtonType} Title={Title}/>
         <SectionServices />
         <SectionTestimonials />

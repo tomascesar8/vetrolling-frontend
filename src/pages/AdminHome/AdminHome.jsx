@@ -2,6 +2,7 @@ import { Container, Row, Col, Card } from 'react-bootstrap';
 import { NavbarBrand } from '../../components/Navbar/NavbarBrand';
 import Turnos from '../Turnos/AdminTurnos';
 import { Link } from 'react-router-dom';
+import './AdminHome.css';
 
 
 const AdminHome = () => {
@@ -10,19 +11,19 @@ const AdminHome = () => {
     <>
       <NavbarBrand/>
 
-      <Container className="mt-5">
+      <Container className="container-admin-home mt-4 pt-2 pt-sm-2 mt-sm-5 ">
         <Row>
-          <Col>
-            <h2>Bienvenido, Administrador</h2>
-            <p className='fs-5 my-5'>
-              Esta es tu página principal de administración. Aquí puedes encontrar un resumen de los turnos asignados.
+          <Col className='title-admin-home'>
+            <h2 className='mb-md-4'>Bienvenido, Administrador</h2>
+            <p className='fs-5 mt-mb-4 mb-md-5'>
+              Aquí puedes encontrar un resumen de los turnos asignados.
             </p>
           </Col>
         </Row>
         <Row>
           <Col>
-          <Turnos showButtons={false} showNavbar={false}/>
-          <Link to='/admin/appointments' className='btn btn-primary mt-4 fs-4'>
+          <Turnos showButtons={false} showNavbar={false} />
+          <Link to='/admin/appointments' className='btn-admin-home-turnos btn btn-primary '>
               Administrar turnos            
           </Link>
           </Col>

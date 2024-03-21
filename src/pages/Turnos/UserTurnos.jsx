@@ -39,6 +39,7 @@ const UserTurnos = () => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Sí, eliminar",
+        cancelButtonText: "Cancelar",
       });
 
       if (confirmDelete.isConfirmed) {
@@ -83,26 +84,28 @@ const UserTurnos = () => {
     <>
       <NavbarBrand />
       <Container>
-        <Button variant="success" onClick={handleShowAddModal} className="m-3">
-          Agregar Turno
-        </Button>
-        <Button
-          variant="danger"
-          onClick={deleteTurno}
-          className="m-3"
-          disabled={!selected}
-        >
-          Borrar Turno
-        </Button>
+        <Container className="d-flex flex-wrap justify-content-center my-3">
+          <Button variant="success button-table" onClick={handleShowAddModal} className="m-1 m-sm-3">
+            Agendar nuevo turno
+          </Button>
+          <Button
+            variant="danger"
+            onClick={deleteTurno}
+            className="m-1 m-sm-3 button-table"
+            disabled={!selected}
+          >
+            Eliminar turno
+          </Button>
+        </Container>
 
-        <Table bordered hover>
+        <Table className="container" bordered hover>
           <thead>
-            <tr>
-              <th>Mascota</th>
-              <th>Detalle Cita</th>
-              <th>Fecha</th>
-              <th>Hora</th>
-              <th>Veterinario</th>
+            <tr className="col-12 d-flex flex-wrap">
+              <th className="user-turnos-cells col-2 col-sm-3">Mascota</th>
+              <th className="user-turnos-cells col-3 col-sm-3">Detalle Cita</th>
+              <th className="user-turnos-cells col-2 col-sm-2">Fecha</th>
+              <th className="user-turnos-cells col-2 col-sm-2">Hora</th>
+              <th className="user-turnos-cells col-3 col-sm-2">Veterinario</th>
             </tr>
           </thead>
           <tbody>
@@ -111,13 +114,13 @@ const UserTurnos = () => {
                 <tr
                   key={turno._id}
                   onClick={() => handleRowClick(turno._id)}
-                  className={selected === turno._id ? "selected-row" : ""}
+                  className={selected === turno._id ? "selected-row col-12 d-flex flex-wrap" : "col-12 d-flex flex-wrap"}
                 >
-                  <td>{pet}</td>
-                  <td>{turno.detalleCita}</td>
-                  <td>{new Date(turno.fecha).toLocaleDateString()}</td>
-                  <td>{turno.hora}</td>
-                  <td>{turno.veterinarian?.nombre}</td>
+                  <td className="user-turnos-cells col-2 col-sm-3 text-capitalize text-secondary fw-bold">{pet}</td>
+                  <td className="user-turnos-cells col-3 col-sm-3">{turno.detalleCita}</td>
+                  <td className="user-turnos-cells col-2 col-sm-2">{new Date(turno.fecha).toLocaleDateString()}</td>
+                  <td className="user-turnos-cells col-2 col-sm-2">{turno.hora}</td>
+                  <td className="user-turnos-cells col-3 col-sm-2">{turno.veterinarian?.nombre}</td>
                 </tr>
               ))}
           </tbody>

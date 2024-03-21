@@ -83,34 +83,36 @@ const Turnos = ({ showButtons = true, showNavbar = true }) => {
   return (
     <>
       {showNavbar && <NavbarBrand />}
-      <Container>
+      <Container className="pb-5">
         {showButtons && (    
         <>
-        <Button variant="success" onClick={handleShow} className="m-3">
-          Agregar Turno
-        </Button>
-        <Button
-          variant="warning"
-          onClick={handleShowEdit}
-          className="m-3"
-          disabled={!selected}
-        >
-          Editar Turno
-        </Button>
-        <Button variant="danger" onClick={deleteTurno} className="m-3" disabled={!selected}>
-          Borrar Turno
-        </Button>
+        <Container className="mt-4 mt-md-5 mb-3 mb-sm-3 d-flex justify-content-center flex-wrap">
+          <Button variant="success" onClick={handleShow} className="button-table m-1 m-sm-3">
+            Agregar Turno
+          </Button>
+          <Button
+            variant="warning"
+            onClick={handleShowEdit}
+            className="button-table m-1 m-sm-3"
+            disabled={!selected}
+          >
+            Editar Turno
+          </Button>
+          <Button variant="danger" onClick={deleteTurno} className="button-table m-1 m-sm-3" disabled={!selected}>
+            Borrar Turno
+          </Button>
+        </Container>
         </>
       )}
-        <Table bordered hover>
+        <Table className="table  mb-0" bordered hover>
           <thead>
-            <tr>
-              <th>Usuario</th>
-              <th>Mascota</th>
-              <th>Detalle Cita</th>
-              <th>Fecha</th>
-              <th>Hora</th>
-              <th>Veterinario</th>
+            <tr className="col-12 d-flex flex-wrap">
+              <th className="col-4 col-sm-2">Usuario</th>
+              <th className="col-4 col-sm-2">Mascota</th>
+              <th className="col-4 col-sm-2">Detalle Cita</th>
+              <th className="col-4 col-sm-2">Fecha</th>
+              <th className="col-4 col-sm-2">Hora</th>
+              <th className="col-4 col-sm-2">Veterinario</th>
             </tr>
           </thead>
           <tbody>
@@ -118,14 +120,14 @@ const Turnos = ({ showButtons = true, showNavbar = true }) => {
               <tr
                 key={turno._id}
                 onClick={() => handleRowClick(turno._id)}
-                className={selected === turno._id ? "selected-row" : ""}
+                className={selected === turno._id ? "selected-row d-flex flex-wrap" : "d-flex flex-wrap"}
               >
-                <td>{turno.user?.nombre}</td>
-                <td>{turno.user?.pet?.nombre}</td>
-                <td>{turno.detalleCita}</td>
-                <td>{new Date(turno.fecha).toLocaleDateString()}</td>
-                <td>{turno.hora}</td>
-                <td>{turno.veterinarian?.nombre}</td>
+                <td className="col-4 col-sm-2">{turno.user?.nombre}</td>
+                <td className="col-4 col-sm-2">{turno.user?.pet?.nombre}</td>
+                <td className="col-4 col-sm-2">{turno.detalleCita}</td>
+                <td className="col-4 col-sm-2">{new Date(turno.fecha).toLocaleDateString()}</td>
+                <td className="col-4 col-sm-2">{turno.hora}</td>
+                <td className="col-4 col-sm-2">{turno.veterinarian?.nombre}</td>
               </tr>
             ))}
           </tbody>

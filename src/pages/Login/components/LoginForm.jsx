@@ -11,14 +11,6 @@ const LoginForm = () => {
   const { login, auth, user } = useContext(UserContext);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (auth) {
-  //     alert('ya estas logueado');
-
-  //     navigate('/home');
-  //   }
-  // }, [auth, user]);
-
   const handleKeyDown = (e) => {
     if (e.key === ' ') {
       e.preventDefault();
@@ -41,7 +33,7 @@ const LoginForm = () => {
               <Form.Control
                 type="email"
                 placeholder="nombre@ejemplo.com"
-                className={`login-input w-100 ${errors.email ? 'is-invalid' : ''}`}
+                className={`login-input ${errors.email ? 'is-invalid' : ''}`}
                 onKeyUp={handleKeyUp}
                 onKeyDown={handleKeyDown}
                 name="email"
@@ -65,11 +57,11 @@ const LoginForm = () => {
                 pattern="^\S{1,30}$"
                 required
               />
-              <Form.Control.Feedback type="invalid" className="text-white fw-bold">
+              <Form.Control.Feedback type="invalid" className="text-breack text-white fw-bold">
                 {errors.password}
               </Form.Control.Feedback>
             </FloatingLabel>
-            <Button className="btn-success fs-5 fw-bold" type="submit">
+            <Button className="btn-success fs-5" type="submit">
               Ingresar
             </Button>
           </form>

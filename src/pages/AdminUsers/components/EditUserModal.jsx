@@ -582,7 +582,7 @@
 
 
 
-import { Modal, Button, FloatingLabel, Form } from "react-bootstrap";
+import { Modal, Button, FloatingLabel, Form, Container } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import axiosClient from "../../../config/axiosClient";
 
@@ -699,11 +699,12 @@ const EditUserModal = ({ show, handleClose, selectedUser, getUsers }) => {
           </FloatingLabel>
           <FloatingLabel controlId="floatingEmail" label="Email">
             <Form.Control
+              className="edit-user-email"
               type="email"
               placeholder="Email del usuario"
               name="email"
               value={userToUpdate.email}
-              onChange={handleInputChange}
+              readOnly
             />
           </FloatingLabel>
 
@@ -748,9 +749,11 @@ const EditUserModal = ({ show, handleClose, selectedUser, getUsers }) => {
             />
           </FloatingLabel>
 
-          <Button variant="primary" type="submit" onClick={handleClose}>
-            Guardar Cambios
-          </Button>
+          <Container className="text-end">
+            <Button className="mt-2" variant="primary" type="submit" onClick={handleClose}>
+              Guardar Cambios
+            </Button>
+          </Container>
         </Form>
       </Modal.Body>
     </Modal>

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export const CallToAction = () => {
 
   return (
@@ -6,12 +8,14 @@ export const CallToAction = () => {
         <div className="row">
           <div className="title-call-to-action col-12 me-sm-5">
             <h2>Querés ponerte en contacto con nosotros?</h2>
-            <p className="text-call-to-action">No dudes en escbrirnos</p>
+            <p className="text-call-to-action">No dudes en escribirnos</p>
           </div>
         </div>
         <div className="row">
           <div className="col-12">
-            <button className="btn btn-primary fw-bolder fs-4 my-4 my-sm-3 my-lg-0 align-top">Contacto</button>
+            <Link to="/contact" className="btn btn-primary fw-bolder fs-5 my-4 my-sm-3 my-lg-0 align-top py-2 px-3" >
+              Contacto
+            </Link>
           </div>
         </div>
       </div>

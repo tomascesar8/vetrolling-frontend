@@ -88,41 +88,55 @@ const Users = () => {
   return (
     <>
       <NavbarBrand />
-      <Container>
-        <Button variant="success" onClick={handleShowAddModal} className="m-3">
-          Agregar Usuario
-        </Button>
-        <Button
-          variant="warning"
-          onClick={handleShowEditModal}
-          className="m-3"
-          disabled={!selectedUser}
-        >
-          Editar Usuario
-        </Button>
-        <Button variant="danger" onClick={deleteUser} className="m-3" disabled={!selectedUser}>
-          Borrar Usuario
-        </Button>
-        <Table bordered hover>
+      <Container className="pb-3">
+        <Container className="mt-4 mt-md-5 mb-3 mb-sm-3">
+          <Button variant="success" onClick={handleShowAddModal} className="button-table m-1 m-md-3">
+            Crear usuario
+          </Button>
+          <Button
+            variant="warning"
+            onClick={handleShowEditModal}
+            className="button-table m-1 m-sm-3"
+            disabled={!selectedUser}
+          >
+            Editar Usuario
+          </Button>
+          <Button variant="danger" onClick={deleteUser} className="button-table m-1 m-md-3" disabled={!selectedUser}>
+            Borrar Usuario
+          </Button>
+        </Container>
+        <Table className="row pb-5" bordered hover>
           <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Email</th>
-              <th>Rol</th>
-              <th>Mascota</th>
+            <tr className="col-12 d-flex direction-column flex-wrap">
+              <th className="col-3 ">Nombre</th>
+              <th className="col-4 ">Email</th>
+              <th className="col-2 ">Rol</th>
+              <th className="col-3 ">Mascota</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user) => (
               <tr
                 key={user._id}
-                onClick={() => handleRowClick(user._id)}
-                className={selectedUser === user._id ? "selected-row" : ""}
+                onClick={() => {
+                  if (user._id !== "65a365c50cd6f9e4d0936fb7") {
+                    handleRowClick(user._id);
+                  }
+                }}
+                className={
+                  `col-12 d-flex direction-column flex-wrap ${user._id === "65a365c50cd6f9e4d0936fb7"
+                    ? "read-only-row"
+                    : selectedUser === user._id
+                    ? "selected-row"
+                    : ""
+                  }`
+                }
+                readOnly={user._id === "65a365c50cd6f9e4d0936fb7"}
               >
-                <td>{user.nombre}</td>
-                <td>{user.email}</td>
-                <td>{user.role}</td>
-                <td>{user.pet?.nombre}</td>
+                <td className="col-3 ">{user.nombre}</td>
+                <td className="col-4 ">{user.email}</td>
+                <td className="col-2 ">{user.role}</td>
+                <td className="col-3 ">{user.pet?.nombre}</td>
               </tr>
             ))}
           </tbody>

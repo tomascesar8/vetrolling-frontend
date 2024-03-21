@@ -13,7 +13,7 @@ export const CardTestimonial = ({ children, subject, image }) => {
           className='mb-3'
         />
         <blockquote className="blockquote mb-0">
-          <p>
+          <p className='fs-5'>
             {' '}
             {children}{' '}
           </p>

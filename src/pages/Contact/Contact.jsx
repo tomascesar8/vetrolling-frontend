@@ -39,9 +39,9 @@ export default function ContactForm() {
   return (
     <>
       <NavbarBrand />
-      <Form className='contact-form mx-4 mx-sm-auto' ref={form} onSubmit={sendEmail}>
+      <Form className='contact-form mt-5 pb-4 mx-4 mx-sm-auto' ref={form} onSubmit={sendEmail}>
         <h2 className='text-center pt-2'>Dejanos tu consulta</h2>
-        <h5 className='text-center mt-4 mb-5 fst-italic'>Nos pondremos en contacto a la brevedad</h5>
+        <h5 className='text-center mt-4 mb-5 fs-6'>Nos pondremos en contacto a la brevedad</h5>
         <FloatingLabel 
           controlId="floatingName" 
           label="Nombre" 

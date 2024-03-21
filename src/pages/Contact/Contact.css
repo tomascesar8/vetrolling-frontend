@@ -6,10 +6,14 @@
   border-radius: 5px;
   background-color: #f9f9f9;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-top: 4em;
+  /* margin-top: 4em; */
   margin-bottom: 20px;
 }
 
+.contact-form h5{
+  font-size: 1rem !important;
+  font-weight: 400 !important;
+}  
 /* .form-control {
   margin: 0px 50px !important;
 } */

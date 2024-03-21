@@ -16,6 +16,10 @@
   /* padding: 20px; */
 }
 
+.subtitle-plans{
+  font-size: 1.2rem !important;
+}
+
 @media (max-width: 576px) {
   h5 {
     font-size: 1.2rem !important; /* Change to h6 font size */

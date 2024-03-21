@@ -4,10 +4,10 @@ import './Login.css'
 
 const Login = () => {
   return ( 
-    <>
-    <NavbarBrand/>
-    <LoginForm/>
-    </>
+    <div style={{height: '100vh', overflowY: 'hidden'}}>
+      <NavbarBrand/>
+      <LoginForm/>
+    </div>
    );
 }
  

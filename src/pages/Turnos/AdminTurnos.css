@@ -1,10 +1,46 @@
-.table-row {
+.table {
   cursor: pointer;
 }
+.user-turnos-cells{
+  word-wrap: break-word
+}
+
+@media (max-width: 768px) {
+  .table th, .table td {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .table th, .table td {
+    font-size: 0.8rem;
+    word-wrap: break-word;
+  }
+  .button-table{
+    font-size: 0.8rem !important;
+  }
+}
+
+@media (max-width: 400px) {
+  .table th, .table td {
+    font-size: 0.75rem;
+  }
+  .user-turnos-cells{
+    font-size: .6rem !important;
+  }
+
+}
+
+
+
+/* @media (max-width: 1200px) {
+  .table th, .table td {
+    font-size: 1rem;
+  }
+} */
 
 .selected-row td{
   background-color: #9289b6 !important;
   color: #fff !important;
-  /* font-weight: 400; */
-  /* border: 2px; */
 }
+

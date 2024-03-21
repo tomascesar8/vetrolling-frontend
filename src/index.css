@@ -59,6 +59,30 @@ html {
 .title-call-to-action{
   padding: 0 2rem;
 }
+.perfil{
+  padding-left: 3rem;
+  width: 100vw !important;
+  font-size: 1.2rem;
+  background-color: gainsboro;
+  /* height: 100vh; */
+}
+.img-avatar-perfil{
+  background-image: url('./../public/assets/images/avatar.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100px;
+  height: 110px;
+}
+
+.info-perfil{
+  font-size: 1.05rem;
+}
+
+.parraf-about-us {
+  /* padding-top: 15px !important; */
+  font-size: 1.3rem !important;
+}
 
 @media (min-width: 0px) and (max-width: 767px) {
   .container-box {
@@ -71,6 +95,7 @@ html {
   .container-title-services {
     margin-top: 2rem;
   }
+
 }
 
 @media screen and (min-width: 575px){
@@ -81,6 +106,100 @@ html {
     margin-top: 1.25rem;
     font-size: 1.6rem;
     font-style: italic;
+  }
+
+  
+}
+
+
+@media screen and (max-width: 575px){
+  .perfil{
+    padding-left: 1rem !important;
+    font-size: 1rem;
+    background-color: gainsboro;
+    /* height: 100vh; */
+  }
+  .img-avatar-perfil{
+    align-self: self-start;
+    width: 80px;
+    height: 50px;
+  }
+  .links-proyect{
+    width: 100%;
+    text-align: center;
+  }
+  .links-proyect button{
+    width: 90%;
+    margin-right: 0 !important;
+  }
+  .title-about-us{
+    font-size: 1.3rem !important;
+  }
+  .title-about-academy{
+    font-size: 1.05rem !important;
+  }
+  .parraf-about-us{
+    padding-top: 15px !important;
+    font-size: 1rem !important;
+  }
+  .parraf-about-list li{
+    font-size: .95rem !important;
+    padding-bottom: 10px;
+  }
+  .container-description{
+    padding: 0 15px !important;    
+  }
+  .container-description li{
+    font-size: 1rem !important;
+  }
+  .info-perfil{
+    font-size: .9rem;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+}
+
+@media screen and (max-width: 460px){
+  .perfil{
+    padding-left: 1rem !important;
+    font-size: .8rem;
+    background-color: gainsboro;
+    /* height: 100vh; */
+  }
+  .img-avatar-perfil{
+    align-self: self-start;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+  }
+  .info-perfil{
+    font-size: .8rem;
+    margin-left: 10px !important;
+    padding-left: 0px !important;
+  }
+  .title-about-us .title-about-proyect{
+    font-size: 1.1rem !important;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .buttons-redes-perfil{
+    display: flex;
+    padding-right: 10px; 
+  }
+  .buttons-redes-perfil .btn-success, .buttons-redes-perfil .btn-secondary{
+    font-size: 11px !important;
+  }
+  .title-about-us .title-about-proyect{
+    padding-top: 5px;
+    font-size: 1.2rem !important;
+    display: block;
+  }
+  .title-about-academy{
+    font-size: .88rem !important;
+  }
+  .parraf-about-us, .parraf-about-list li{
+    font-size: .9rem !important;
   }
 }
 
@@ -93,9 +212,9 @@ html {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {  
-  .container-hero{
+  /* .container-hero{
     margin-left: 0;
-  }
+  } */
   .hero-buttons {
     transform: translateY(-100%);
   }
@@ -108,11 +227,20 @@ html {
   }
 }
 
+
+
+
 @media screen and (min-width: 992px){
   .container-title-services {
     text-align: center;
     margin-top: 5rem !important;
   }
+  .perfil{
+    padding-left: 5rem;
+  } 
+}
+
+@media screen and (min-width: 1199px){
 }
 
 
@@ -169,4 +297,10 @@ html {
 
 .blockquote-footer::before {
   content: none;
+}
+
+@media screen and (max-width: 576px){
+  .blockquote p{
+    font-size: 1rem !important;
+  }
 }

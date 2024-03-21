@@ -1,10 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import './NavbarBrand.css';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom'; // Cambio a NavLink para usar activeClassName
 import { UserContext } from '../../context/UserContext';
 
-export const NavbarBrand = () => {  
+export const NavbarBrand = () => {
   const { pathname } = useLocation();
   const { logout, user, auth, getAuth } = useContext(UserContext);
   // console.log(user);
@@ -18,10 +18,10 @@ export const NavbarBrand = () => {
 
   return (
     <>
-      <Navbar expand={isLoginPage ? true : "xl"} sticky="top" className="bg-dark bg-gradient bg-opacity-85 pt-sm-8 py-sm-3 pt-md-4">
-        <Container> 
+      <Navbar expand={isLoginPage ? true : "xl"} sticky="top" className="bg-dark bg-gradient py-3  py-sm-4 py-md-4 py-xl-3">
+        <Container>
           <Link to="/" className='text-decoration-none'>
-            <Navbar.Brand className='title-logo text-white fw-bolder'>
+            <Navbar.Brand className='title-logo text-white fw-bolder ps-3 ps-sm-0'>
               VETROLLING
               <img
                 alt=""
@@ -36,46 +36,44 @@ export const NavbarBrand = () => {
             <Navbar.Collapse className="justify-content-end me-3" id="navbarNav">
               <Nav className="ml-auto p-0">
                 <Link to="/register" className='register-button'>
-                  <span className="px-2 text-white btn bg-info bg-opacity-75 fw-bold">Registro</span>
+                  <span className="px-2 btn text-white bg-info bg-opacity-75">Registro</span>
                 </Link>
               </Nav>
             </Navbar.Collapse>
           ) : (
             <>
-              <Navbar.Toggle aria-controls="navbarNav" className="text-white border-0 navbar-toggle">
-                <span style={{ color: 'white'}}>&#9776;</span>
+              <Navbar.Toggle aria-controls="navbarNav" className=" border-0 navbar-toggle pe-4">
+                <span style={{ color: 'white' }}>&#9776;</span>
               </Navbar.Toggle>
               <Navbar.Collapse className="justify-content-end" id="navbarNav">
                 <Nav className="ml-auto">
                   {user ? (
                     user.role === 'admin' ? (
-                        <>
-                          <Link to="/admin/home" className='text-white nav-link'>Admin</Link>
-                          <Link to="/admin/users" className='text-white nav-link'>Usuarios</Link>
-                          <Link to="/admin/appointments" className='text-white nav-link'>Turnos</Link>
-                          <Link to="/login" onClick={logout} className="nav-link fw-bold btn bg-danger text-white ms-3">
-                            <span className="px-2">Cerrar sesión</span>
-                          </Link>
-                          {/* <p>{user.role}</p> */}
-                        </>
-                    ) : (
                       <>
-                        <Link to="/info-plans" className='text-white nav-link'>Planes Disponibles</Link>
-                        <Link to="/appointments" className='text-white nav-link'>Turnos</Link>
-                        <Link to="/about-us" className='text-white nav-link'>Sobre nosotros</Link>
-                        <Link to="/contact" className='text-white nav-link'>Contacto</Link>
-                        <Link to="/login" onClick={logout} className="nav-link fw-bold btn bg-danger text-white ms-3">
+                        <NavLink to="/admin/home" className=' nav-link' activeClassName="active">Admin Home</NavLink>
+                        <NavLink to="/admin/users" className=' nav-link' activeClassName="active">Gestionar Usuarios</NavLink>
+                        <NavLink to="/admin/appointments" className=' nav-link' activeClassName="active">Gestionar Turnos</NavLink>
+                        <Link to="/login" onClick={logout} className="nav-link text-white btn bg-danger  ms-3">
                           <span className="px-2">Cerrar sesión</span>
                         </Link>
-                        {/* <p>{user.role}</p> */}
+                      </>
+                    ) : (
+                      <>
+                        <NavLink to="/appointments" className=' nav-link' activeClassName="active">Mis Turnos</NavLink>
+                        <NavLink to="/info-plans" className=' nav-link' activeClassName="active">Planes Disponibles</NavLink>
+                        <NavLink to="/contact" className=' nav-link' activeClassName="active">Contacto</NavLink>
+                        <NavLink to="/about-us" className=' nav-link' activeClassName="active">Sobre nosotros</NavLink>
+                        <Link to="/login" onClick={logout} className="nav-link text-white btn bg-danger  ms-3">
+                          <span className="px-2">Cerrar sesión</span>
+                        </Link>
                       </>
                     )
-                    ) : (
+                  ) : (
                     <>
-                      <Link to="/info-plans" className='text-white nav-link'>Planes Disponibles</Link>
-                      <Link to="/contact" className='text-white nav-link'>Contacto</Link>
-                      <Link to="/about-us" className='text-white nav-link ms-2'>Sobre nosotros</Link>
-                      <Link to="/login" className="nav-link text-white fw-bold bg-info bg-opacity-75 btn ms-3">
+                      <NavLink to="/info-plans" className=' nav-link' activeClassName="active">Planes Disponibles</NavLink>
+                      <NavLink to="/contact" className=' nav-link' activeClassName="active">Contacto</NavLink>
+                      <NavLink to="/about-us" className=' nav-link ms-2' activeClassName="active">Sobre nosotros</NavLink>
+                      <Link to="/login" className="nav-link text-white bg-info bg-opacity-75 btn ms-3">
                         <span className="px-2">Iniciar sesión</span>
                       </Link>
                     </>
