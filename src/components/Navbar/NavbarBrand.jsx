@@ -3,6 +3,7 @@ import './NavbarBrand.css';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { Link, NavLink, useLocation } from 'react-router-dom'; // Cambio a NavLink para usar activeClassName
 import { UserContext } from '../../context/UserContext';
+import {logo} from '../../assets/images/logo-vetrolling-navbar.png'
 
 export const NavbarBrand = () => {
   const { pathname } = useLocation();
@@ -25,7 +26,7 @@ export const NavbarBrand = () => {
               VETROLLING
               <img
                 alt=""
-                src="/public/assets/images/logo-vetrolling-navbar.png"
+                src={logo}
                 width="38"
                 height="31"
                 className="d-inline-block align-top align-bottom ms-1"
