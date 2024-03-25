@@ -3,6 +3,7 @@ import { FaInstagram, FaFacebook, FaWhatsapp, FaSun, FaCloud, FaCloudSun, FaClou
 import { IoLocationOutline } from 'react-icons/io5';
 import { Row, Col, Container } from 'react-bootstrap';
 import './Footer.css';
+import logoNav from '../../../public/assets/images/logo-vetrolling-navbar.png'
 
 export const Footer = () => {
   const api = {
@@ -112,7 +113,7 @@ export const Footer = () => {
             VETROLLING
             <img
               alt=""
-              src="/public/assets/images/logo-vetrolling-navbar.png"
+              src={logoNav}
               width="50"
               height="47"
               className="mb-1 d-inline-block align-top align-bottom ms-1"

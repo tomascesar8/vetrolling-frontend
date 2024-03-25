@@ -2,6 +2,8 @@ import { Container, Row, Col, Image } from 'react-bootstrap';
 import { ButtonType } from '../Button/ButtonType';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import logoHero from '../../../public/assets/images/logo-vetrolling-removebg-preview.png'
+
 
 export const Hero = (auth) => {
   const [imageSize, setImageSize] = useState({ width: 260, height: 260 });
@@ -29,7 +31,7 @@ export const Hero = (auth) => {
     <Row className='col-12'>
       <Col>
         <Image
-          src="/public/assets/images/logo-vetrolling-removebg-preview.png"
+          src={logoHero}
           width={imageSize.width}
           height={imageSize.height}
           alt="VetRolling Logo"

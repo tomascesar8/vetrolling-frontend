@@ -1,4 +1,5 @@
 import { Card, Image } from 'react-bootstrap'
+import quoteCard from '../../../../public/assets/icons/quote.svg'
 
 export const CardTestimonial = ({ children, subject, image }) => {
   return (
@@ -6,7 +7,7 @@ export const CardTestimonial = ({ children, subject, image }) => {
       <Card.Body className='p-0 p-sm-3'>
         <Image
           variant="top" 
-          src='/public/assets/icons/quote.svg'
+          src={quoteCard}
           alt='title'
           width={30} 
           height={30}
