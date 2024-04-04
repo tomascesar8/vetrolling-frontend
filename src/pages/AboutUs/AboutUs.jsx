@@ -61,7 +61,7 @@ const AboutUs = () => {
                 </li>
                 <li>
                   <span>
-                    Administración de usuarios y turnos (CRUD). <span className="fw-bold"><em><span className="fw-bold text-decoration-underline text-success text-uppercase">Se puede ingresar con usuario: <span className="fw-bold text-danger text-uppercase">admin@example.com (contraseña: Admin123#)</span> para probar estas funciones.</span></em></span>
+                    Administración de usuarios y turnos (CRUD). <span className="fw-bold"><em><span className="fw-bold text-decoration-underline text-success text-uppercase">Se puede ingresar con usuario: <span className="fw-bold text-danger" style={{ textTransform: 'none' }}>admin@example.com (contraseña: Admin123#)</span> para probar estas funciones.</span></em></span>
                   </span> <span className="fw-bold text-secondary fst-italic">(axios)</span>
                 </li>
                 <li>

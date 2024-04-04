@@ -26,7 +26,7 @@ export const LandingPage = () => {
 
   if (loading) {
     return (
-        <div className="mt-5">Cargando...</div>
+        <div className="mt-5 pt-5">Cargando...</div>
       )
   }
     return (

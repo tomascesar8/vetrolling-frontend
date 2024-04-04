@@ -15,7 +15,7 @@ const PublicRoute = ({children}) => {
   },[])
   
   return ( 
-    loading ? <div>Cargando...</div> 
+    loading ? <div className="mt-5 pt-5">Cargando...</div> 
     : 
     !auth ? children 
     : 

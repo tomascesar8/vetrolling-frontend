@@ -130,6 +130,10 @@ html {
   }
   .title-about-us{
     font-size: 1.3rem !important;
+    margin-bottom: 1.5rem;
+  }
+  .title-about-us .title-about-proyect{
+    text-decoration: underline;
   }
   .title-about-academy{
     font-size: 1.05rem !important;

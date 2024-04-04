@@ -15,7 +15,7 @@ const AdminRoute = ({children}) => {
   },[])
   
   return ( 
-    loading ? <div>Cargando...</div> : user && user.role === 'admin' ? children : <Navigate to='/'/>
+    loading ? <div className="mt-5 pt-5">Cargando...</div> : user && user.role === 'admin' ? children : <Navigate to='/'/>
   );  
 }
  
