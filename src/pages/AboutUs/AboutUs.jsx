@@ -27,17 +27,21 @@ const AboutUs = () => {
         <Row>
           <Col>
             <div className="container-description">
-              {/* <h1 className="mt-3 text-decoration-underline">
-                PROYECTO FINAL<br />
-              </h1> */}
-                <h2 className="title-about-us mt-2">
-                  <span className="title-about-proyect d-sm-inline fw-bold text-secondary">PROYECTO FINAL </span>
-                  <span className="title-about-proyect d-sm-inline fw-bold text-secondary">FULL STACK (MERN)</span>
-                  {/* <span className="d-none d-lg-inline"> - </span>  */}
-                  <span className="title-about-academy d-block pt-2 fs-3 fw-bolder">{`- ACADEMIA ROLLINGCODE SCHOOL -`}</span>
-                </h2>
+              <h2 className="title-about-us mt-2">
+                <span className="title-about-proyect d-sm-inline fw-bold text-secondary">
+                  PROYECTO FINAL{" "}
+                </span>
+                <span className="title-about-proyect d-sm-inline fw-bold text-secondary">
+                  FULL STACK (MERN)
+                </span>
+                <span className="title-about-academy d-block pt-2 fs-3 fw-bolder">{`- ACADEMIA ROLLINGCODE SCHOOL -`}</span>
+              </h2>
               <p className="parraf-about-us pt-5 pb-2 fs-4">
-              <span className="fw-bolder">VetRolling</span> es una aplicación web para una veterinaria que <span className=" text-decoration-underline">ofrece las siguientes funciones y características:</span>
+                <span className="fw-bolder">VetRolling</span> es una aplicación
+                web para una veterinaria que{" "}
+                <span className=" text-decoration-underline">
+                  ofrece las siguientes funciones y características:
+                </span>
               </p>
               <ul
                 className="parraf-about-list"
@@ -50,36 +54,36 @@ const AboutUs = () => {
                 }}
               >
                 <li>
-                  Conexión con backend y base de datos NoSQL (MongoDB) para un
-                  rendimiento sólido.
+                  Conexión con backend y <span className="fw-bold">base de datos NoSQL</span><span className="fw-bold text-secondary fst-italic"> (MongoDB)</span>. 
                 </li>
                 <li>
-                  Ruteo intuitivo y manejo de estados para una navegación
-                  fluida.
-                </li>
-                <li>Administración de usuarios y turnos (CRUD).</li>
-                <li>
-                  Registro de usuarios y login para una gestión segura (perfiles
-                  de usuario y administrador).
+                  Ruteo intuitivo <span className="fw-bold text-secondary fst-italic">(react-router-dom)</span> y manejo de estados para una navegación fluida. <span className="fw-bold text-secondary fst-italic">(useState & useEffect)</span>
                 </li>
                 <li>
-                  Autenticación segura y gestión de tokens para la protección de
-                  datos.
+                  <span>
+                    Administración de usuarios y turnos (CRUD). <span className="fw-bold"><em><span className="fw-bold text-decoration-underline text-success text-uppercase">Se puede ingresar con usuario: <span className="fw-bold text-danger text-uppercase">admin@example.com (contraseña: Admin123#)</span> para probar estas funciones.</span></em></span>
+                  </span> <span className="fw-bold text-secondary fst-italic">(axios)</span>
                 </li>
                 <li>
-                  Encryptación de contraseñas para garantizar la seguridad de la
-                  información sensible.
+                  Registro de usuarios y login para <span className="fw-bold text-secondary fst-italic">usuarios y administradores</span>.
                 </li>
                 <li>
-                  Generación de contexto para optimizar la interacción entre
-                  componentes.
+                  Gestión de tokens para una autenticación segura. <span className="fw-bold text-secondary fst-italic">(jsonwebtoken)</span>
                 </li>
-                <li>Integración de API externa para el clima.</li>
-                <li>Envío automático de emails para notificaciones.</li>
-
-                <div className="mt-3">
+                <li>
+                  Encryptación de contraseñas para la seguridad de información sensible. <span className="fw-bold text-secondary fst-italic">(bcrypt)</span>
+                </li>
+                <li>
+                  Generación de contexto para optimizar la interacción entre componentes. <span className="fw-bold text-secondary fst-italic">(useContext)</span>
+                </li>
+                <li>Integración de API externa para el clima. <span className="fw-bold text-secondary fst-italic">(OpenWeather API)</span></li>
+                <li>Envío automático de emails para notificaciones. <span className="fw-bold text-secondary fst-italic">(EmailJS API)</span></li>
+                <li className="mb-5"><span className="fw-bold">App resposive</span> adaptada tanto a dispositivos móviles, tablets y pc de escritorio.</li>
+                <hr className="text-secondary"/>
+                
+                <div className="mt-3 mt-sm-5">
                   <p>
-                    <strong>Proyecto Frontend (deployado en Netlify):</strong>
+                    <p className="mb-2 subtitle-about-us text-decoration-underline"><strong>Proyecto Frontend (deployado en Netlify):</strong></p>
                     <li>Tecnologías utilizadas: React con Vite </li>
                     <li>
                       Librerías npm: axios, react-router-dom, react-bootstrap,
@@ -87,7 +91,7 @@ const AboutUs = () => {
                     </li>
                   </p>
                   <p>
-                    <strong>Proyecto Backend (deployado en Render):</strong>
+                    <p className="mb-2 subtitle-about-us text-decoration-underline"><strong>Proyecto Backend (deployado en Render):</strong></p>
                     <li>
                       Tecnologías utilizadas: Node.js con Express y MongoDB{" "}
                     </li>
@@ -98,86 +102,82 @@ const AboutUs = () => {
                   </p>
                 </div>
 
-                <div className="links-proyect my-4">
-                <div className="requisitos mb-md-2">
-                  <Button className="me-2 mb-2 py-2 px-3 mb-md-0" variant="success" onClick={openPdf}>
-                    Requisitos del Proyecto (PDF)
-                  </Button>
-                  <Button variant="primary mb-2 py-2 px-3 mb-md-0" onClick={openTrelloBoard}>
-                    Ver Tablero de Trello
-                  </Button>
-                </div>
-               
-                <div className="repositorios-github">
-                  <Button
-                    variant="secondary"
-                    className="mr-2 me-2 mb-2 py-2 px-3 mb-md-0"
-                    onClick={() => openGithubRepo("frontend")}
-                  >
-                    Repositorio Frontend en GitHub
-                  </Button>
-                  <Button
-                    className="mb-2 py-2 px-3 mb-md-0"
-                    variant="secondary"
-                    onClick={() => openGithubRepo("backend")}
-                  >
-                    Repositorio Backend en GitHub
-                  </Button>
-                </div>
-              </div>
+                <div className="links-proyect mt-5 mb-4">
+                  <div className="requisitos mb-md-2">
+                    <Button
+                      className="me-2 mb-2 py-2 px-3 mb-md-0"
+                      variant="success"
+                      onClick={openPdf}
+                    >
+                      Requisitos del Proyecto (PDF)
+                    </Button>
+                    <Button
+                      variant="primary mb-2 py-2 px-3 mb-md-0"
+                      onClick={openTrelloBoard}
+                    >
+                      Ver Tablero de Trello
+                    </Button>
+                  </div>
 
-
+                  <div className="repositorios-github">
+                    <Button
+                      variant="secondary"
+                      className="mr-2 me-2 mb-2 py-2 px-3 mb-md-0"
+                      onClick={() => openGithubRepo("frontend")}
+                    >
+                      Repositorio Frontend en GitHub
+                    </Button>
+                    <Button
+                      className="mb-2 py-2 px-3 mb-md-0"
+                      variant="secondary"
+                      onClick={() => openGithubRepo("backend")}
+                    >
+                      Repositorio Backend en GitHub
+                    </Button>
+                  </div>
+                </div>
               </ul>
             </div>
-
-
-
-              
-    
-
-
-
           </Col>
         </Row>
-        
       </Container>
 
-
       <div className="my-5 py-5 perfil d-flex justify-content-center align-items-center sticky-bottom">
-                <div className="img-avatar-perfil me-md-4">
-                </div>
-                <div className="info-perfil ms-5 ms-sm-0">
-                  <p className="mb-0">
-                    Hola mi nombre es Tomás César. <span className="d-block d-sm-inline">Tengo 30 años y vivo en Córdoba, Argentina.</span> <br />
-                  </p>
-                    <div className="buttons-redes-perfil mt-1 mt-sm-4">
-                      <Button
-                        variant="success"
-                        className="mr-2 ms-3 me-2"
-                        onClick={() =>
-                          window.open(
-                            "https://www.linkedin.com/in/tomascesar-dev/",
-                            "_blank"
-                            )
-                          }
-                          >
-                        <FaLinkedin /> LinkedIn
-                      </Button>
-                      <Button
-                        // className="mt-2"
-                        variant="secondary"
-                        onClick={() =>
-                          window.open("https://github.com/tomascesar8", "_blank")
-                        }
-                        >
-                        <FaGithub /> GitHub
-                      </Button>
-                    </div>
-                </div>
-              </div>
+        <div className="img-avatar-perfil me-md-4"></div>
+        <div className="info-perfil ms-5 ms-sm-0">
+          <p className="mb-0">
+            Hola mi nombre es Tomás César.{" "}
+            <span className="d-block d-sm-inline">
+              Tengo 30 años y vivo en Córdoba, Argentina.
+            </span>{" "}
+            <br />
+          </p>
+          <div className="buttons-redes-perfil mt-1 mt-sm-4">
+            <Button
+              variant="success"
+              className="mr-2 ms-3 me-2"
+              onClick={() =>
+                window.open(
+                  "https://www.linkedin.com/in/tomascesar-dev/",
+                  "_blank"
+                )
+              }
+            >
+              <FaLinkedin /> LinkedIn
+            </Button>
+            <Button
+              variant="secondary"
+              onClick={() =>
+                window.open("https://github.com/tomascesar8", "_blank")
+              }
+            >
+              <FaGithub /> GitHub
+            </Button>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
 
 export default AboutUs;
-

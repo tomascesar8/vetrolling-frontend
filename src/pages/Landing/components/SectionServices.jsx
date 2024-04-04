@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import getData from "./../../../helpers/getData";
 import { Title } from "../../../components/Title/Title";
 import { CardImage } from "../../../components/Card/Cards";
@@ -23,10 +23,10 @@ const SectionServices = () => {
           <CardImage
             clasesCardServices={"col-12 col-md-6 col-xl-3 align-items-center border-0"}
             imgServices={"img-service"}
-            key={servicio._id} // Utilizando el ID del servicio como clave única
+            key={servicio._id}
             title={servicio.nombre}
             urlImage={servicio.imagen}
-            typeImg="jpg" // Cambia esto según la lógica de tu aplicación
+            typeImg="jpg"
           >
             {servicio.descripcion}
           </CardImage>

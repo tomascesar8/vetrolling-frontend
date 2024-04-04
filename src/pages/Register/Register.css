@@ -13,14 +13,10 @@
 
 .button-register{
   height: 3.5rem;
-  /* width: 5em !important; */
   margin: .8rem;
   margin-top: .5rem;
-  /* margin-left: 1rem !important; */
   width: 8rem;
 }
-
-
 
 @media (max-width: 450px) {
   .form-register .form-floating{
@@ -41,7 +37,7 @@
     justify-content: center;
   }
   h5 {
-    font-size: 1.2rem !important; /* Cambiar el tamaño de fuente a h6 */
+    font-size: 1.2rem !important;
   }
   .register-input{
     margin: 0px !important;
@@ -65,4 +61,8 @@
   .form-register .form-floating{
   font-size: .8rem;
   }
+}
+
+#register-input-pass{
+  margin-bottom: 0 !important;
 }

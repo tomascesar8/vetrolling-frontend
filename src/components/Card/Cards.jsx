@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, Image } from 'react-bootstrap';
 
 export const CardImage = ({ children, title, urlImage, typeImg, clasesCardServices, imgServices, clasesCardPlans, imgPlans }) => {

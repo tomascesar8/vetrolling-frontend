@@ -1,7 +1,6 @@
 import { CardImage } from "../../../components/Card/Cards";
 
-const CardPlan = ({ title, imageUrl, price, description, clasesCardSPlans, imgPlans }) => {
-  // console.log(imgPlans);
+const CardPlan = ({ title, imageUrl, price, description}) => {
   return (
     <a className="btn col-12 col-md-3 mt-2" href="/plansdetails">
       <CardImage

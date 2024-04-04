@@ -1,10 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Container, Table, Button } from "react-bootstrap";
 import axiosClient from "../../config/axiosClient";
 import { NavbarBrand } from "../../components/Navbar/NavbarBrand";
 import AddModal from "./components/AddModal";
 import Swal from "sweetalert2";
 import { UserContext } from "../../context/UserContext";
+import { formatDate } from "../../helpers/formatDate";
 
 const UserTurnos = () => {
   const { user } = useContext(UserContext);
@@ -13,14 +14,10 @@ const UserTurnos = () => {
   const [selected, setSelected] = useState(null);
   const [showAddModal, setShowAddModal] = useState(false);
 
-  console.log(user, '¡Usuario!');
-  console.log(user._id);
-
   const getTurnos = async () => {
     try {
       if (user && user._id) {
         const response = await axiosClient.get(`/users/${user._id}`);
-        console.log(response.data.user.pet.nombre ,'USUARIO en GET');
         setTurnos(response.data.user.turnos);
         setPet(response.data.user.pet.nombre);
       }
@@ -118,7 +115,7 @@ const UserTurnos = () => {
                 >
                   <td className="user-turnos-cells col-2 col-sm-3 text-capitalize text-secondary fw-bold">{pet}</td>
                   <td className="user-turnos-cells col-3 col-sm-3">{turno.detalleCita}</td>
-                  <td className="user-turnos-cells col-2 col-sm-2">{new Date(turno.fecha).toLocaleDateString()}</td>
+                  <td className="col-4 col-sm-2">{formatDate(turno.fecha)}</td>
                   <td className="user-turnos-cells col-2 col-sm-2">{turno.hora}</td>
                   <td className="user-turnos-cells col-3 col-sm-2">{turno.veterinarian?.nombre}</td>
                 </tr>
@@ -130,6 +127,8 @@ const UserTurnos = () => {
           show={showAddModal}
           handleClose={handleCloseAddModal}
           userId={user._id}
+          setTurnos={setTurnos}
+          getTurnos={getTurnos}
         />
       </Container>
     </>

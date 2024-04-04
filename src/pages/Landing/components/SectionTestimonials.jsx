@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Title } from "../../../components/Title/Title";
-// import getData from "../../../helpers/getData";
 import { CardTestimonial } from "./CardTestimonial";
 import getData from "./../../../helpers/getData";
 
@@ -19,7 +18,6 @@ const SectionTestimonials = () => {
           <CardTestimonial
             key={comment._id}
             subject={comment.nombre}
-            // rol={comment.rol}
             image={comment.imagen}
           >
             {comment.comentario}

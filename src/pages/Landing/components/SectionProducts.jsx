@@ -7,7 +7,7 @@ const SectionProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getData("/products", setProducts); // Cambia "/products" por la ruta correcta para obtener los productos.
+    getData("/products", setProducts);
   }, []);
 
   return (

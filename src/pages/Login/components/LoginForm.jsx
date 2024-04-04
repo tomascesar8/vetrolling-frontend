@@ -3,7 +3,7 @@ import { FloatingLabel, Form, Button } from 'react-bootstrap';
 import { BiUserPin } from 'react-icons/bi';
 import { useNavigate } from 'react-router-dom';
 import { LOGIN_VALUES } from '../../../constanst';
-import { validationLogin } from '../../../helpers/validations';
+import { handleKeyDownForEmail, noSpacesKeyDown, validationLogin } from '../../../helpers/validations';
 import useForm from '../../../hooks/useForm';
 import { UserContext } from '../../../context/UserContext';
 
@@ -35,13 +35,15 @@ const LoginForm = () => {
                 placeholder="nombre@ejemplo.com"
                 className={`login-input ${errors.email ? 'is-invalid' : ''}`}
                 onKeyUp={handleKeyUp}
-                onKeyDown={handleKeyDown}
                 name="email"
-                maxLength={40}
-                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                title="El email debe tener el formato nombre@dominio.tld"
+                minLength={10}
+                maxLength={30}
+                onKeyDown={handleKeyDownForEmail}
                 required
               />
-              <Form.Control.Feedback type="invalid" className="text-white fw-bold">
+              <Form.Control.Feedback type="invalid" className="invalid-login text-white fw-bold">
                 {errors.email}
               </Form.Control.Feedback>
             </FloatingLabel>
@@ -54,10 +56,11 @@ const LoginForm = () => {
                 onKeyDown={handleKeyDown}
                 name="password"
                 maxLength={30}
-                pattern="^\S{1,30}$"
+                title="Debe contener mínimo 6 caracteres (letras mayúsculas, minúsculas, números y caracteres especiales)"
+                onKeyDown={noSpacesKeyDown}
                 required
               />
-              <Form.Control.Feedback type="invalid" className="text-breack text-white fw-bold">
+              <Form.Control.Feedback type="invalid" className="invalid-login text-breack text-white fw-bold">
                 {errors.password}
               </Form.Control.Feedback>
             </FloatingLabel>

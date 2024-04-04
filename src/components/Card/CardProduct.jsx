@@ -9,8 +9,6 @@ export const CardProduct = ({ product, descripcion, image }) => {
       <Card.Img
         src={image}
         alt={product}
-        // width={380}
-        // height={300}
         className='product-img'
       />
       <Card.ImgOverlay className="d-flex flex-column justify-content-end">

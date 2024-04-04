@@ -6,6 +6,7 @@ import axiosClient from "../../config/axiosClient";
 import { NavbarBrand } from "../../components/Navbar/NavbarBrand";
 import "./AdminTurnos.css";
 import Swal from "sweetalert2";
+import { formatDate } from "../../helpers/formatDate";
 
 const Turnos = ({ showButtons = true, showNavbar = true }) => {
   const [turnos, setTurnos] = useState([]);
@@ -23,16 +24,12 @@ const Turnos = ({ showButtons = true, showNavbar = true }) => {
       const response = await axiosClient.get("/turnos");
       setTurnos(response.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   const deleteTurno = async () => {
     try {
-      // Obtener la información del turno antes de eliminarlo
-      const turnoToDelete = turnos.find((turno) => turno._id === selected);
-  
-      // Mostrar el modal de confirmación
       const confirmDelete = await Swal.fire({
         title: "¿Estás seguro?",
         text: "Esta acción es irreversible.",
@@ -44,29 +41,22 @@ const Turnos = ({ showButtons = true, showNavbar = true }) => {
       });
   
       if (confirmDelete.isConfirmed) {
-        // Eliminar el turno
         await axiosClient.delete(`/turnos/${selected}`);
   
-        // Mostrar el modal de éxito
         Swal.fire({
           title: "¡Turno eliminado!",
           text: "El turno ha sido eliminado correctamente.",
           icon: "success",
         });
   
-        // Actualizar la lista de turnos excluyendo el turno eliminado
         setTurnos(turnos.filter((turno) => turno._id !== selected));
-  
-        // Limpiar la selección actual
         setSelected(null);
       }
     } catch (error) {
-      console.log('Error al borrar el turno');
-      console.log(error);
+      console.error(error);
     }
   };
   
-
   const handleRowClick = (turnoId) => {
     if (selected === turnoId) {
       setSelected(null);
@@ -77,7 +67,6 @@ const Turnos = ({ showButtons = true, showNavbar = true }) => {
 
   useEffect(() => {
     getTurnos();
-    console.log('GET TURNOS');
   }, []);
 
   return (
@@ -125,7 +114,7 @@ const Turnos = ({ showButtons = true, showNavbar = true }) => {
                 <td className="col-4 col-sm-2">{turno.user?.nombre}</td>
                 <td className="col-4 col-sm-2">{turno.user?.pet?.nombre}</td>
                 <td className="col-4 col-sm-2">{turno.detalleCita}</td>
-                <td className="col-4 col-sm-2">{new Date(turno.fecha).toLocaleDateString()}</td>
+                <td className="col-4 col-sm-2">{formatDate(turno.fecha)}</td>
                 <td className="col-4 col-sm-2">{turno.hora}</td>
                 <td className="col-4 col-sm-2">{turno.veterinarian?.nombre}</td>
               </tr>

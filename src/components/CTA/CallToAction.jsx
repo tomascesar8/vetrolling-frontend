@@ -7,8 +7,8 @@ export const CallToAction = () => {
       <div className="container d-flex flex-row justify-content-around flex-wrap ">
         <div className="row">
           <div className="title-call-to-action col-12 me-sm-5">
-            <h2>Querés ponerte en contacto con nosotros?</h2>
-            <p className="text-call-to-action">No dudes en escribirnos</p>
+            <h2 className="text-dark">Querés ponerte en contacto con nosotros?</h2>
+            <p className="text-call-to-action opacity-75">Te responderemos a la brevedad</p>
           </div>
         </div>
         <div className="row">

@@ -7,6 +7,8 @@ html {
 
 #root{
   padding: 0 !important;
+  --color-verde-aguila: #1f929a;
+
 }
 
 .description {
@@ -14,19 +16,12 @@ html {
 }
 
 .container-box {
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
   margin-bottom: 5rem;
   margin-top: 10rem;
-  /* width: 95vw !important; */
-  /* padding-right: 1rem; */
-  /* padding-left: 1rem; */
 }
 .container-box h2{
   margin-bottom: 4rem;
 }
-
 
 .container-box-testimonials h2{
   padding: 0 2rem !important;
@@ -64,7 +59,6 @@ html {
   width: 100vw !important;
   font-size: 1.2rem;
   background-color: gainsboro;
-  /* height: 100vh; */
 }
 .img-avatar-perfil{
   background-image: url('./../public/assets/images/avatar.png');
@@ -80,8 +74,12 @@ html {
 }
 
 .parraf-about-us {
-  /* padding-top: 15px !important; */
   font-size: 1.3rem !important;
+}
+
+.alert-input-password{
+  font-size: 10px !important;
+  padding: 6px 0px 6px 5px;
 }
 
 @media (min-width: 0px) and (max-width: 767px) {
@@ -95,7 +93,6 @@ html {
   .container-title-services {
     margin-top: 2rem;
   }
-
 }
 
 @media screen and (min-width: 575px){
@@ -107,17 +104,16 @@ html {
     font-size: 1.6rem;
     font-style: italic;
   }
-
-  
+  .parraf-about-list li{
+    margin: 20px 0px;
+  }
 }
-
 
 @media screen and (max-width: 575px){
   .perfil{
     padding-left: 1rem !important;
     font-size: 1rem;
     background-color: gainsboro;
-    /* height: 100vh; */
   }
   .img-avatar-perfil{
     align-self: self-start;
@@ -157,6 +153,10 @@ html {
     padding-left: 15px !important;
     padding-right: 15px !important;
   }
+  .register-input .form-control{
+    margin-top: .25rem;
+    margin-bottom: .15rem;
+  }
 }
 
 @media screen and (max-width: 460px){
@@ -164,7 +164,6 @@ html {
     padding-left: 1rem !important;
     font-size: .8rem;
     background-color: gainsboro;
-    /* height: 100vh; */
   }
   .img-avatar-perfil{
     align-self: self-start;
@@ -179,6 +178,9 @@ html {
   }
   .title-about-us .title-about-proyect{
     font-size: 1.1rem !important;
+  }
+  .container-title-services p{
+    font-size: 1.05rem !important;
   }
 }
 
@@ -212,23 +214,13 @@ html {
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {  
-  /* .container-hero{
-    margin-left: 0;
-  } */
   .hero-buttons {
     transform: translateY(-100%);
-  }
-  .hero-title{
-    
-    /* font-size: 2.2rem !important; */
   }
   .container-box-testimonials{
     margin: 8rem 0rem 5rem 0rem !important;
   }
 }
-
-
-
 
 @media screen and (min-width: 992px){
   .container-title-services {
@@ -240,29 +232,7 @@ html {
   } 
 }
 
-@media screen and (min-width: 1199px){
-}
-
-
-/* .container-card {
-  margin: 2rem;
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-  align-items: center;
-} */
-
-/* .card-body{
-  padding: 0 !important;
-} */
-
-.card-service{
-  /* width: 200px !important; */
-}
-
 .container-card.svg {
-  /* margin: 5rem; */
-  /* gap: 5rem; */
   justify-content: center;
 }
 
@@ -285,15 +255,6 @@ html {
   font-size: 1.5rem;
   font-weight: bold;
 }
-
-/* .border-none {
-  border: none;
-  width: 32rem;
-  height: 20rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-} */
 
 .blockquote-footer::before {
   content: none;

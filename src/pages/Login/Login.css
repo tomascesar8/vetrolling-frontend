@@ -25,27 +25,13 @@
   width: 450px !important;
 }
 
-.invalid-feedback{
-  padding-top: 4px !important;
-  /* font-size: 10.5px !important; */
-}
-
-
-@media (max-width: 768px) {
-  .invalid-feedback{
-    padding-top: 4px !important;
-    /* font-size: .9rem !important; */
-  }
-}
-
 @media (max-width: 576px) {
   .login-input {
     width: 380px !important;
     min-width: auto !important;
   } 
   .invalid-feedback{
-    font-size: .8rem !important;
-    padding-top: 4px !important;
+    font-size: .8rem !important;   
   }
 }
 @media (max-width: 450px) {
@@ -60,6 +46,6 @@
 
 @media (max-width: 400px) {
   .invalid-feedback{
-    font-size: .6rem !important;
+    font-size: .65rem !important;
   }
 }

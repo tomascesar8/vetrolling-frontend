@@ -11,7 +11,6 @@ import SectionServices from "./components/SectionServices"
 import SectionTestimonials from "./components/SectionTestimonials"
 import "./LandingPage.css"
 import { UserContext } from "../../context/UserContext"
-import AdminHome from "../AdminHome/AdminHome"
 
 export const LandingPage = () => {
   const { user, auth, getAuth } = useContext(UserContext);
@@ -30,7 +29,6 @@ export const LandingPage = () => {
         <div className="mt-5">Cargando...</div>
       )
   }
-  // if (!auth || user.role === "user") {
     return (
       <>
         <NavbarBrand />
@@ -43,15 +41,5 @@ export const LandingPage = () => {
         <Footer />
       </>
     )
-  // }
-  // if (user && user.role === "admin") {
-  //   return (
-  //     <>
-  //       <AdminHome />
-  //       <Footer />
-  //     </>
-  //   )
-  // }
-  // return <Navigate to="/" />
 }
 

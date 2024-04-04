@@ -1,16 +1,14 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import './NavbarBrand.css';
 import { Navbar, Nav, Container } from 'react-bootstrap';
-import { Link, NavLink, useLocation } from 'react-router-dom'; // Cambio a NavLink para usar activeClassName
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { UserContext } from '../../context/UserContext';
 import logoNav from '../../../public/assets/images/logo-vetrolling-navbar.png'
 
 export const NavbarBrand = () => {
   const { pathname } = useLocation();
   const { logout, user, auth, getAuth } = useContext(UserContext);
-  // console.log(user);
 
-  // Llamada a getAuth inmediatamente para actualizar el estado
   useEffect(() => {
     getAuth();
   }, []);
@@ -51,19 +49,19 @@ export const NavbarBrand = () => {
                   {user ? (
                     user.role === 'admin' ? (
                       <>
-                        <NavLink to="/admin/home" className=' nav-link' activeClassName="active">Admin Home</NavLink>
-                        <NavLink to="/admin/users" className=' nav-link' activeClassName="active">Gestionar Usuarios</NavLink>
-                        <NavLink to="/admin/appointments" className=' nav-link' activeClassName="active">Gestionar Turnos</NavLink>
+                        <NavLink to="/admin/home" className=' nav-link' >Admin Home</NavLink>
+                        <NavLink to="/admin/users" className=' nav-link' >Gestionar Usuarios</NavLink>
+                        <NavLink to="/admin/appointments" className=' nav-link' >Gestionar Turnos</NavLink>
                         <Link to="/login" onClick={logout} className="nav-link text-white btn bg-danger  ms-3">
                           <span className="px-2">Cerrar sesión</span>
                         </Link>
                       </>
                     ) : (
                       <>
-                        <NavLink to="/appointments" className=' nav-link' activeClassName="active">Mis Turnos</NavLink>
-                        <NavLink to="/info-plans" className=' nav-link' activeClassName="active">Planes Disponibles</NavLink>
-                        <NavLink to="/contact" className=' nav-link' activeClassName="active">Contacto</NavLink>
-                        <NavLink to="/about-us" className=' nav-link' activeClassName="active">Sobre nosotros</NavLink>
+                        <NavLink to="/appointments" className=' nav-link' >Mis Turnos</NavLink>
+                        <NavLink to="/info-plans" className=' nav-link' >Planes Disponibles</NavLink>
+                        <NavLink to="/contact" className=' nav-link' >Contacto</NavLink>
+                        <NavLink to="/about-us" className=' nav-link' >Sobre nosotros</NavLink>
                         <Link to="/login" onClick={logout} className="nav-link text-white btn bg-danger  ms-3">
                           <span className="px-2">Cerrar sesión</span>
                         </Link>
@@ -71,9 +69,9 @@ export const NavbarBrand = () => {
                     )
                   ) : (
                     <>
-                      <NavLink to="/info-plans" className=' nav-link' activeClassName="active">Planes Disponibles</NavLink>
-                      <NavLink to="/contact" className=' nav-link' activeClassName="active">Contacto</NavLink>
-                      <NavLink to="/about-us" className=' nav-link ms-2' activeClassName="active">Sobre nosotros</NavLink>
+                      <NavLink to="/info-plans" className=' nav-link' >Planes Disponibles</NavLink>
+                      <NavLink to="/contact" className=' nav-link' >Contacto</NavLink>
+                      <NavLink to="/about-us" className=' nav-link ms-2' >Sobre nosotros</NavLink>
                       <Link to="/login" className="nav-link text-white bg-info bg-opacity-75 btn ms-3">
                         <span className="px-2">Iniciar sesión</span>
                       </Link>

@@ -6,7 +6,7 @@ const getData = async (url, setData) => {
     const response = await axiosClient.get(url);
     setData(response.data);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

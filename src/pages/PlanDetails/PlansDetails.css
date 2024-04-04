@@ -13,7 +13,6 @@
 .form-plans {
   max-width: 400px;
   margin: 0 auto;
-  /* padding: 20px; */
 }
 
 .subtitle-plans{
@@ -22,6 +21,6 @@
 
 @media (max-width: 576px) {
   h5 {
-    font-size: 1.2rem !important; /* Change to h6 font size */
+    font-size: 1.2rem !important;
   }
 }

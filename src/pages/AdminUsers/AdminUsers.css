@@ -1,13 +1,13 @@
 .edit-user-email, .read-only-row {
-  color: rgb(166, 148, 148) !important; /* Color gris */
-  font-style: italic; /* Estilo italic */
+  color: rgb(166, 148, 148) !important;
+  font-style: italic;
   cursor: not-allowed !important;
 }
 
 .read-only-row{
-  color: red !;
+  color: red !important;
 }
 
-.form-control{
+.form-control, .form-select {
   margin-bottom: 7px;
 }

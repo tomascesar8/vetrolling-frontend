@@ -1,5 +1,4 @@
 import { Container, Row, Col, Image } from 'react-bootstrap';
-import { ButtonType } from '../Button/ButtonType';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoHero from '../../../public/assets/images/logo-vetrolling-removebg-preview.png'
@@ -7,22 +6,18 @@ import logoHero from '../../../public/assets/images/logo-vetrolling-removebg-pre
 
 export const Hero = (auth) => {
   const [imageSize, setImageSize] = useState({ width: 260, height: 260 });
-  // console.log(imageSize);
   useEffect(() => {
   const handleResize = () => {
     if (window.innerWidth < 776) {
-      console.log(window.innerWidth);
-      const newWidth = window.innerWidth * 0.75; // Example: 50% of screen width
-      console.log('ajuste pantalla', newWidth);
-      setImageSize({ width: newWidth, height: newWidth }); // Keep the aspect ratio square
+      const newWidth = window.innerWidth * 0.75;
+      setImageSize({ width: newWidth, height: newWidth });
     } else {
-      setImageSize({ width: 550, height: 550 }); // Default size for larger screens
+      setImageSize({ width: 550, height: 550 });
     }
   };
   window.addEventListener('resize', handleResize);
-  handleResize(); // Set initial size
+  handleResize();
   
-  // Cleanup listener on component unmount
   return () => window.removeEventListener('resize', handleResize);
 }, []);
 

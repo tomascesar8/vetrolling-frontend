@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Container, Table, Button } from "react-bootstrap";
 import AddUserModal from "./components/AddUserModal";
 import EditUserModal from "./components/EditUserModal";
@@ -21,19 +21,16 @@ const Users = () => {
   const getUsers = async () => {
     try {
       const response = await axiosClient.get("/users");
-      console.log(response.data);
       setUsers(response.data);
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 
   const deleteUser = async () => {
     try {
-      // Obtener la información del usuario antes de eliminarlo
       const userToDelete = users.find((user) => user._id === selectedUser);
   
-      // Mostrar el modal de confirmación
       const confirmDelete = await Swal.fire({
         title: "¿Estás seguro?",
         text: `Se eliminará el usuario ${userToDelete.nombre}. Esta acción es irreversible.`,
@@ -45,34 +42,25 @@ const Users = () => {
       });
   
       if (confirmDelete.isConfirmed) {
-        // Eliminar la mascota vinculada al usuario
         if (userToDelete.pet) {
           await axiosClient.delete(`/pets/${userToDelete.pet._id}`);
         }
-  
-        // Eliminar el usuario
         await axiosClient.delete(`/users/${selectedUser}`);
   
-        // Mostrar el modal de éxito
         Swal.fire({
           title: "¡Usuario eliminado!",
           text: `El usuario ${userToDelete.nombre} ha sido eliminado correctamente.`,
           icon: "success",
         });
   
-        // Actualizar la lista de usuarios excluyendo el usuario eliminado
         setUsers(users.filter((user) => user._id !== selectedUser));
-  
-        // Limpiar la selección actual
         setSelectedUser(null);
       }
     } catch (error) {
-      console.log('Error al borrar el usuario');
-      console.log(error);
+      console.error(error);
     }
   };
   
-
   const handleRowClick = (userId) => {
     if (selectedUser === userId) {
       setSelectedUser(null);
@@ -119,19 +107,19 @@ const Users = () => {
               <tr
                 key={user._id}
                 onClick={() => {
-                  if (user._id !== "65a365c50cd6f9e4d0936fb7") {
+                  if (user._id !== "66059e610967d5392f26391b") {
                     handleRowClick(user._id);
                   }
                 }}
                 className={
-                  `col-12 d-flex direction-column flex-wrap ${user._id === "65a365c50cd6f9e4d0936fb7"
+                  `col-12 d-flex direction-column flex-wrap ${user._id === "66059e610967d5392f26391b"
                     ? "read-only-row"
                     : selectedUser === user._id
                     ? "selected-row"
                     : ""
                   }`
                 }
-                readOnly={user._id === "65a365c50cd6f9e4d0936fb7"}
+                readOnly={user._id === "66059e610967d5392f26391b"}
               >
                 <td className="col-3 ">{user.nombre}</td>
                 <td className="col-4 ">{user.email}</td>

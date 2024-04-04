@@ -27,15 +27,12 @@ export const Footer = () => {
       try {
         const response = await fetch(`${api.base}weather?lat=${latitude}&lon=${longitude}&appid=${api.key}&lang=es`);
         const data = await response.json();
-        // console.log(data);
-        // console.log(data.weather[0].icon);
         setWeatherData({
           location: capitalizeFirstLetter(data.name),
           temperature: `${Math.round(data.main.temp - 273.15)}°C`,
           condition: capitalizeFirstLetter(data.weather[0].description),
           icon: data.weather[0].icon
         });
-        // console.log(weatherData);
       } catch (error) {
         console.error('Error fetching weather data:', error);
       }
@@ -57,7 +54,6 @@ export const Footer = () => {
     };
     
     getLocation();
-    // console.log(weatherData);
   }, []);
 
   const mapConditionToIcon = (icon) => {
@@ -93,7 +89,7 @@ export const Footer = () => {
       case '50n':
         return <FaSmog />;
       default:
-        return 'Sin información de clima disponible' // Cambia por el ícono por defecto que prefieras
+        return 'Sin información de clima disponible'
     }
   };
 
