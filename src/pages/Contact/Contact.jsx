@@ -12,7 +12,6 @@ export default function ContactForm() {
   const navigate = useNavigate(); 
   const form = useRef();
   const {user} = useContext(UserContext);
-  console.log(user);
 
   const sendEmail = (e) => {
     e.preventDefault();
