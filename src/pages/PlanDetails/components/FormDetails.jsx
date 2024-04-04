@@ -1,14 +1,16 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { Form, FloatingLabel, Button } from "react-bootstrap";
 import "./../PlansDetails.css";
 import { handleInputForPhone, handleKeyDown, handleKeyDownForEmail } from "../../../helpers/validations";
+import { UserContext } from "../../../context/UserContext";
 
 const FormPlans = () => {
   const form = useRef();
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -68,6 +70,9 @@ const FormPlans = () => {
             type="email" 
             name="destinatario"
             pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            defaultValue={user ? user.email : ''}
+            readOnly={user ? true : false}
+            className={user ? "form-control text-secondary fst-italic" : ""}
             title="El email debe tener el formato 'nombre@dominio.tld'"
             minLength={10}
             maxLength={30}
